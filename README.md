@@ -8,6 +8,8 @@ On this site you will find reviews from games. Some details over the game,
 
 Pictures will follow.
 
+https://capstone-game-review.herokuapp.com/
+
 
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=gadenko_GameReviewSite_backend&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=gadenko_GameReviewSite_backend)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=gadenko_GameReviewSite_backend&metric=coverage)](https://sonarcloud.io/summary/new_code?id=gadenko_GameReviewSite_backend)
