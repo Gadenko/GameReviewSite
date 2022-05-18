@@ -2,6 +2,7 @@ import React from 'react';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import useGameReview from "./hook/useGameReview";
 import {ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import GameReviewOverview from "./components/GameReviewOverview";
 
 export default function App() {
@@ -14,6 +15,11 @@ export default function App() {
                 <ToastContainer/>
                 <Routes>
                     <Route path="/"
+                           element={<GameReviewOverview
+                               gameReviews={gameReviews}
+                               addNewGameReview={addNewGameReview}
+                               deleteGameReview={deleteGameReview}/>}/>
+                    <Route path="/gamereview/:id"
                            element={<GameReviewOverview
                                gameReviews={gameReviews}
                                addNewGameReview={addNewGameReview}
