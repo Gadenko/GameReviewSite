@@ -1,5 +1,6 @@
 package com.github.gadenko.gamereviewsite.backend.controller;
 
+import com.github.gadenko.gamereviewsite.backend.dto.CreateGameReviewDto;
 import com.github.gadenko.gamereviewsite.backend.model.GameReview;
 import com.github.gadenko.gamereviewsite.backend.service.GameReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +18,12 @@ public class GameReviewController {
     }
 
     @GetMapping
-    public List<GameReview> getGameReview (){
-        return gameReviewService.getgameReviewService();
+    public List<GameReview> getAllGameReviews (){
+        return gameReviewService.getAllGameReviews();
     }
 
     @PostMapping
-    public GameReview postNewReview (@RequestBody GameReview newGameReview){
+    public GameReview postNewReview (@RequestBody CreateGameReviewDto newGameReview){
         return gameReviewService.addNewGameReview(newGameReview);
     }
 

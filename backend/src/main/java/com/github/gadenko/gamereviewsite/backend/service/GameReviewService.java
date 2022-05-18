@@ -1,5 +1,6 @@
 package com.github.gadenko.gamereviewsite.backend.service;
 
+import com.github.gadenko.gamereviewsite.backend.dto.CreateGameReviewDto;
 import com.github.gadenko.gamereviewsite.backend.model.GameReview;
 import com.github.gadenko.gamereviewsite.backend.repo.GameReviewRepo;
 import org.springframework.stereotype.Service;
@@ -14,12 +15,16 @@ public class GameReviewService {
         this.gameReviewRepo = gameReviewRepo;
     }
 
-    public List<GameReview> getgameReviewService() {
+    public List<GameReview> getAllGameReviews() {
         return gameReviewRepo.findAll();
     }
 
-    public GameReview addNewGameReview(GameReview newGameReview) {
-        return gameReviewRepo.insert(newGameReview);
+    public GameReview addNewGameReview(CreateGameReviewDto newGameReview) {
+        GameReview newReview = new GameReview();
+        newReview.setTitle(newGameReview.getTitle());
+        newReview.setHeadline(newGameReview.getHeadline());
+        newReview.setGameDescription(newGameReview.getGameDescription());
+        return gameReviewRepo.insert(newReview);
     }
 
     public void deleteGameReview(String id) {
