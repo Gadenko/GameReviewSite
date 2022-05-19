@@ -13,12 +13,19 @@ export default function GameReviewOverview({gameReviews, addNewGameReview, delet
     const [search, setSearch] = useState<string>("")
     return(
         <div>
-            <input type={"text"} value={search} placeholder={"Search"} onChange={(event:ChangeEvent<HTMLInputElement>) => setSearch(event.target.value)}/>
+            <input type={"text"}
+                   value={search}
+                   placeholder={"Search"}
+                   onChange={(event:ChangeEvent<HTMLInputElement>) => setSearch(event.target.value)}/>
             {gameReviews.filter(gameReview => gameReview
                 .title
                 .toLowerCase()
                 .includes(search.toLowerCase()))
-                .map(gameReview => <GameReviewCard gameReviews={gameReview} deleteGameReview={deleteGameReview}/>)
+                .map(gameReview =>
+                    <GameReviewCard
+                        key={gameReview.id}
+                        gameReviews={gameReview}
+                        deleteGameReview={deleteGameReview}/>)
             }
             <NewGameReview addNewGameReview={addNewGameReview}/>
         </div>

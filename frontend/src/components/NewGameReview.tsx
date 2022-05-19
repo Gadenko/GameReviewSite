@@ -38,10 +38,20 @@ export default function NewGameReview({addNewGameReview}: NewGameReviewProps){
     return(
         <div>
             <form onSubmit={onAdd}>
-                <input type={"text"} placeholder={"Add a Title"} value={title} onChange={event => setTitle(event.target.value)}/>
-                <input type={"text"} placeholder={"Add a headline"} value={headline} onChange={event => setHeadline(event.target.value)}/>
-                <input type={"text"} placeholder={"Add a gameDescription"} value={gameDescription} onChange={event => setGameDescription(event.target.value)}/>
-                <input type={"submit"} value={"Add GameReview"} />
+                <input type={"text"}
+                       placeholder={"Add a Title"}
+                       value={title}
+                       onChange={event => setTitle(event.target.value)}/>
+                <input type={"text"}
+                       placeholder={"Add a headline"}
+                       value={headline}
+                       onChange={event => setHeadline(event.target.value)}/>
+                <input type={"text"}
+                       placeholder={"Add a gameDescription"}
+                       value={gameDescription}
+                       onChange={event => setGameDescription(event.target.value)}/>
+                <input type={"submit"}
+                       value={"Add GameReview"} />
             </form>
         </div>
     )

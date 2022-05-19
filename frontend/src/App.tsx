@@ -19,11 +19,7 @@ export default function App() {
                                gameReviews={gameReviews}
                                addNewGameReview={addNewGameReview}
                                deleteGameReview={deleteGameReview}/>}/>
-                    <Route path="/gamereview/:id"
-                           element={<GameReviewOverview
-                               gameReviews={gameReviews}
-                               addNewGameReview={addNewGameReview}
-                               deleteGameReview={deleteGameReview}/>}/>
+
                 </Routes>
             </BrowserRouter>
         </div>
