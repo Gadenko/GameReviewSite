@@ -6,6 +6,8 @@ import com.github.gadenko.gamereviewsite.backend.repo.GameReviewRepo;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -39,6 +41,41 @@ class GameReviewServiceTest {
         //Then
         assertThat(actual, Matchers.containsInAnyOrder(gameReview1,gameReview2));
         verify(gameReviewRepo).findAll();
+    }
+
+    @Test
+    void getGameReviewById_whenIsValid(){
+        //Given
+        when(gameReviewRepo.findById("1")).thenReturn(
+                Optional.of(GameReview
+                        .builder()
+                        .id("1")
+                        .title("X4: Foundations")
+                        .headline("Hält der Titel was er verspricht?")
+                        .gameDescription("Schöner Weltraum Titel. Sehr viele möglickeiten der entfaltung im Space.")
+                        .build()));
+        //When
+        GameReview actual = gameReviewService.getGameReviewById("1");
+        //Then
+        GameReview expected = GameReview
+                .builder()
+                .id("1")
+                .title("X4: Foundations")
+                .headline("Hält der Titel was er verspricht?")
+                .gameDescription("Schöner Weltraum Titel. Sehr viele möglickeiten der entfaltung im Space.")
+                .build();
+
+        verify(gameReviewRepo).findById("1");
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    void getGameReviewById_ifIdIsNotValid_shouldThrowException(){
+        //Given
+        when(gameReviewRepo.findById("1")).thenReturn(Optional.empty());
+        //When  //Then
+        assertThrows(NoSuchElementException.class, () -> gameReviewService.getGameReviewById("1"));
+        verify(gameReviewRepo).findById("1");
     }
 
     @Test
