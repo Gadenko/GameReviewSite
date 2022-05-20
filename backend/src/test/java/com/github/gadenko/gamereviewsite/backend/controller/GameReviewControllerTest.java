@@ -1,5 +1,6 @@
 package com.github.gadenko.gamereviewsite.backend.controller;
 
+import com.github.gadenko.gamereviewsite.backend.dto.CreateGameReviewDto;
 import com.github.gadenko.gamereviewsite.backend.model.GameReview;
 import com.github.gadenko.gamereviewsite.backend.repo.GameReviewRepo;
 import org.junit.jupiter.api.Assertions;
@@ -165,6 +166,20 @@ class GameReviewControllerTest {
                 .build();
         assertEquals(24, actual.getId().length());
         assertEquals(expected, actual);
+    }
+
+    @Test
+    void addElement_whenMissingField_thenThrowIllegalArgumentException(){
+        CreateGameReviewDto gameReviewDto = CreateGameReviewDto
+                .builder()
+                .headline("Hält der Titel was er verspricht?")
+                .gameDescription("Was für eine Fantasy Welt")
+                .build();
+        testClient.post()
+                .uri("http://localhost:" + port + "/api/gamereview")
+                .bodyValue(gameReviewDto)
+                .exchange()
+                .expectStatus().is4xxClientError();
     }
 
     @Test

@@ -27,6 +27,15 @@ public class GameReviewService {
 
     public GameReview addNewGameReview(CreateGameReviewDto newGameReview) {
         GameReview newReview = new GameReview();
+        if(newGameReview.getTitle() == null){
+            throw new IllegalArgumentException("Title of the given gamereview was null");
+        }
+        if(newGameReview.getHeadline() == null){
+            throw new IllegalArgumentException("Headline of the given gamereview was null");
+        }
+        if(newGameReview.getGameDescription() == null){
+            throw new IllegalArgumentException("GameDescription of the given gamereview was null");
+        }
         newReview.setTitle(newGameReview.getTitle());
         newReview.setHeadline(newGameReview.getHeadline());
         newReview.setGameDescription(newGameReview.getGameDescription());
