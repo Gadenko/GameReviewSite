@@ -1,4 +1,4 @@
-package com.github.gadenko.gamereviewsite.backend.status;
+package com.github.gadenko.gamereviewsite.backend.controller.status;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

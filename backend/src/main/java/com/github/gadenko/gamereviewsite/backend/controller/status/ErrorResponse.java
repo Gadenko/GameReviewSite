@@ -1,4 +1,4 @@
-package com.github.gadenko.gamereviewsite.backend.status;
+package com.github.gadenko.gamereviewsite.backend.controller.status;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
