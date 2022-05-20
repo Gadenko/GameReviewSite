@@ -2,6 +2,7 @@ package com.github.gadenko.gamereviewsite.backend.controller;
 
 import com.github.gadenko.gamereviewsite.backend.model.GameReview;
 import com.github.gadenko.gamereviewsite.backend.repo.GameReviewRepo;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,6 +71,69 @@ class GameReviewControllerTest {
                         .gameDescription("Schöner Weltraum Titel. Sehr viele möglickeiten der entfaltung im Space.")
                         .build());
         assertEquals(expected, actual);
+    }
+
+    @Test
+    void getGameReviewById_whenIsValid(){
+        //Given
+        GameReview gameReview = GameReview
+                .builder()
+                .title("TES5 Skyrim")
+                .headline("Hält der Titel was er verspricht?")
+                .gameDescription("Was für eine Fantasy Welt")
+                .build();
+        GameReview addGameReview = testClient.post()
+                .uri("http://localhost:" + port + "/api/gamereview")
+                .bodyValue(gameReview)
+                .exchange()
+                .expectStatus().is2xxSuccessful()
+                .expectBody(GameReview.class)
+                .returnResult()
+                .getResponseBody();
+        //When
+        assertNotNull(addGameReview);
+        GameReview actual = testClient.get()
+                .uri("http://localhost:" + port + "/api/gamereview/" + addGameReview.getId())
+                .exchange()
+                .expectBody(GameReview.class)
+                .returnResult()
+                .getResponseBody();
+        //Then
+        assertNotNull(actual);
+        GameReview expected = GameReview
+                .builder()
+                .id(actual.getId())
+                .title("TES5 Skyrim")
+                .headline("Hält der Titel was er verspricht?")
+                .gameDescription("Was für eine Fantasy Welt")
+                .build();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void getGameReviewById_ifIdIsNotValid_shouldThrowException(){
+        //Given
+        GameReview gameReview = GameReview
+                .builder()
+                .id("1")
+                .title("TES5 Skyrim")
+                .headline("Hält der Titel was er verspricht?")
+                .gameDescription("Was für eine Fantasy Welt")
+                .build();
+        testClient.post()
+                .uri("http://localhost:" + port + "/api/gamereview")
+                .bodyValue(gameReview)
+                .exchange()
+                .expectStatus().is2xxSuccessful()
+                .expectBody(GameReview.class)
+                .returnResult()
+                .getResponseBody();
+        //When
+        testClient.get()
+                .uri("http://localhost:" + port + "/api/gamereview/" + "5")
+                .exchange()
+        //Then
+                .expectStatus().is5xxServerError();
     }
 
     @Test

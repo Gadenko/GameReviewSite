@@ -22,6 +22,11 @@ public class GameReviewController {
         return gameReviewService.getAllGameReviews();
     }
 
+    @GetMapping("{id}")
+    public GameReview getGameReviewById(@PathVariable String id){
+        return gameReviewService.getGameReviewById(id);
+    }
+
     @PostMapping
     public GameReview postNewReview (@RequestBody CreateGameReviewDto newGameReview){
         return gameReviewService.addNewGameReview(newGameReview);
