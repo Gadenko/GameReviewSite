@@ -133,7 +133,7 @@ class GameReviewControllerTest {
                 .uri("http://localhost:" + port + "/api/gamereview/" + "5")
                 .exchange()
         //Then
-                .expectStatus().is5xxServerError();
+                .expectStatus().is4xxClientError();
     }
 
     @Test
