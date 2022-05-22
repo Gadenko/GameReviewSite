@@ -23,7 +23,7 @@ export default function DetailPage({deleteGameReview}: GameReviewDetailPageProps
             {detailedGameReview &&
                 <h2>{detailedGameReview.title}{''}</h2>}
             {detailedGameReview &&
-                <div>{detailedGameReview.headline}{''}</div>}
+                <p>{detailedGameReview.headline}{''}</p>}
             {detailedGameReview &&
                 <div>{detailedGameReview.gameDescription}{''}</div>}
             <button onClick={() => navigate(`/`)}>Back</button>

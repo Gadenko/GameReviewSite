@@ -5,11 +5,13 @@
 }
 .Header{
     display: grid;
-    background: rosybrown;
+    background: black;
     border-radius: 20px;
+    height: 100%;
+    width: 100%;
 }
 .Search-Bar{
-    margin-left: -800px;
+    margin-left: -350px;
 }
 .Nav{
     grid-area: nav;
@@ -19,4 +21,9 @@
     font-weight: bold;
     font-size: 30px;
     margin-top: -80px;
+    margin-right: 390px;
+    color: white;
+}
+.Link{
+    color: white;
 }
