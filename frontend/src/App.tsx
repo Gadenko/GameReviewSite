@@ -3,10 +3,11 @@ import {Route, Routes} from "react-router-dom";
 import useGameReview from "./hook/useGameReview";
 import {ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import Header from "./components/Header";
 import GameReviewHomePage from "./pages/GameReviewHomePage";
 import DetailPage from "./pages/DetailPage";
-import Header from "./components/Header";
 import AddReviewPage from "./pages/AddReviewPage";
+import "./css/App.css"
 
 export default function App() {
 
@@ -14,7 +15,7 @@ export default function App() {
 
 
     return (
-        <div>
+        <div className="APP-Style">
             <ToastContainer/>
             <Header/>
             <Routes>
