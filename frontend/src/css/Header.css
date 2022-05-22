@@ -6,16 +6,12 @@
 .Header{
     display: grid;
     background: black;
-    border-radius: 20px;
-    height: 100%;
     width: 100%;
-}
-.Search-Bar{
-    margin-left: -350px;
+    margin: 0px 7.5px 0px 5px;
 }
 .Nav{
     grid-area: nav;
-    display: grid;
+    display: block;
     grid-template-columns: repeat(4,auto);
     align-items: center;
     font-weight: bold;
