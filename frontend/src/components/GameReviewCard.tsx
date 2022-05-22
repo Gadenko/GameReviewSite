@@ -1,19 +1,17 @@
 import {GameReview} from "../model/GameReview";
+import {useNavigate} from "react-router-dom";
 
 type GameReviewCardProps = {
     gameReviews: GameReview
-    deleteGameReview: (id: string) => void
 }
 
-export default function GameReviewCard({gameReviews, deleteGameReview}: GameReviewCardProps){
+export default function GameReviewCard({gameReviews}: GameReviewCardProps){
+    const navigate = useNavigate();
     return(
         <div>
-            <div>{gameReviews.title}</div>
+
+            <h1 onClick={() => navigate(`/gamereview/${gameReviews.id}`)}>{gameReviews.title}</h1>
             <div>{gameReviews.headline}</div>
-            <div>{gameReviews.gameDescription}</div>
-            <div>
-                {deleteGameReview && <button onClick={() => deleteGameReview(gameReviews.id)}> ❌ </button>}
-            </div>
         </div>
     )
 }

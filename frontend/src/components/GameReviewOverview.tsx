@@ -6,10 +6,9 @@ import NewGameReview from "./NewGameReview";
 type GameReviewGameReviewOverviewProps = {
     gameReviews: GameReview[];
     addNewGameReview: (newGameReview : Omit<GameReview, "id">) => void;
-    deleteGameReview: (id: string) => void;
 }
 
-export default function GameReviewOverview({gameReviews, addNewGameReview, deleteGameReview}: GameReviewGameReviewOverviewProps){
+export default function GameReviewOverview({gameReviews, addNewGameReview}: GameReviewGameReviewOverviewProps){
     const [search, setSearch] = useState<string>("")
     return(
         <div>
@@ -25,7 +24,7 @@ export default function GameReviewOverview({gameReviews, addNewGameReview, delet
                     <GameReviewCard
                         key={gameReview.id}
                         gameReviews={gameReview}
-                        deleteGameReview={deleteGameReview}/>)
+                        />)
             }
             <NewGameReview addNewGameReview={addNewGameReview}/>
         </div>
