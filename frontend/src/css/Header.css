@@ -1,0 +1,22 @@
+.Header-Picture{
+    height: 140px;
+    width: 140px;
+    border-radius: 20px;
+}
+.Header{
+    display: grid;
+    background: rosybrown;
+    border-radius: 20px;
+}
+.Search-Bar{
+    margin-left: -800px;
+}
+.Nav{
+    grid-area: nav;
+    display: grid;
+    grid-template-columns: repeat(4,auto);
+    align-items: center;
+    font-weight: bold;
+    font-size: 30px;
+    margin-top: -80px;
+}

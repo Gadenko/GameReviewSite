@@ -1,5 +1,5 @@
 import {GameReview} from "../model/GameReview";
-import {ChangeEvent, useState} from "react";
+import {useState} from "react";
 import GameReviewCard from "./GameReviewCard";
 import NewGameReview from "./NewGameReview";
 
@@ -8,14 +8,10 @@ type GameReviewGameReviewOverviewProps = {
     addNewGameReview: (newGameReview : Omit<GameReview, "id">) => void;
 }
 
-export default function GameReviewOverview({gameReviews, addNewGameReview}: GameReviewGameReviewOverviewProps){
-    const [search, setSearch] = useState<string>("")
+export default function GameReviewHomePage({gameReviews, addNewGameReview}: GameReviewGameReviewOverviewProps){
+    const [search] = useState("");
     return(
         <div>
-            <input type={"text"}
-                   value={search}
-                   placeholder={"Search"}
-                   onChange={(event:ChangeEvent<HTMLInputElement>) => setSearch(event.target.value)}/>
             {gameReviews.filter(gameReview => gameReview
                 .title
                 .toLowerCase()
@@ -24,7 +20,7 @@ export default function GameReviewOverview({gameReviews, addNewGameReview}: Game
                     <GameReviewCard
                         key={gameReview.id}
                         gameReviews={gameReview}
-                        />)
+                    />)
             }
             <NewGameReview addNewGameReview={addNewGameReview}/>
         </div>

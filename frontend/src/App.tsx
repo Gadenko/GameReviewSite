@@ -1,10 +1,11 @@
 import React from 'react';
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import useGameReview from "./hook/useGameReview";
 import {ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import GameReviewOverview from "./components/GameReviewOverview";
+import GameReviewHomePage from "./components/GameReviewHomePage";
 import DetailPage from "./pages/DetailPage";
+import Header from "./components/Header";
 
 export default function App() {
 
@@ -13,18 +14,17 @@ export default function App() {
 
     return (
         <div>
-            <BrowserRouter>
                 <ToastContainer/>
+                <Header/>
                 <Routes>
                     <Route path="/"
-                           element={<GameReviewOverview
+                           element={<GameReviewHomePage
                                gameReviews={gameReviews}
                                addNewGameReview={addNewGameReview}/>}/>
                     <Route path={'/gamereview/:id'}
                            element={<DetailPage
                            deleteGameReview={deleteGameReview}/>}/>
                 </Routes>
-            </BrowserRouter>
         </div>
     );
 }
