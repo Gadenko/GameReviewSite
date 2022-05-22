@@ -13,6 +13,7 @@ export default function Header(){
             </div>
             <nav className="Nav">
                 <a href="/">Home</a>
+                <a href="/#/addgamereview">AddGameReview</a>
             </nav>
         </header>
     )

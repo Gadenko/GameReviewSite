@@ -1,14 +1,13 @@
 import {GameReview} from "../model/GameReview";
 import {useState} from "react";
-import GameReviewCard from "./GameReviewCard";
-import NewGameReview from "./NewGameReview";
+import GameReviewCard from "../components/GameReviewCard";
 
 type GameReviewGameReviewOverviewProps = {
     gameReviews: GameReview[];
-    addNewGameReview: (newGameReview : Omit<GameReview, "id">) => void;
+
 }
 
-export default function GameReviewHomePage({gameReviews, addNewGameReview}: GameReviewGameReviewOverviewProps){
+export default function GameReviewHomePage({gameReviews}: GameReviewGameReviewOverviewProps){
     const [search] = useState("");
     return(
         <div>
@@ -22,7 +21,6 @@ export default function GameReviewHomePage({gameReviews, addNewGameReview}: Game
                         gameReviews={gameReview}
                     />)
             }
-            <NewGameReview addNewGameReview={addNewGameReview}/>
         </div>
     )
 }
