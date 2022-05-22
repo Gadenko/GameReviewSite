@@ -4,10 +4,12 @@ import useGameReview from "./hook/useGameReview";
 import {ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import GameReviewOverview from "./components/GameReviewOverview";
+import DetailPage from "./pages/DetailPage";
 
 export default function App() {
 
     const {gameReviews, addNewGameReview, deleteGameReview} = useGameReview();
+
 
     return (
         <div>
@@ -17,9 +19,10 @@ export default function App() {
                     <Route path="/"
                            element={<GameReviewOverview
                                gameReviews={gameReviews}
-                               addNewGameReview={addNewGameReview}
-                               deleteGameReview={deleteGameReview}/>}/>
-
+                               addNewGameReview={addNewGameReview}/>}/>
+                    <Route path={'/gamereview/:id'}
+                           element={<DetailPage
+                           deleteGameReview={deleteGameReview}/>}/>
                 </Routes>
             </BrowserRouter>
         </div>
