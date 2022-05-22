@@ -12,7 +12,6 @@ export default function GameReviewCard({gameReviews}: GameReviewCardProps){
 
             <h1 onClick={() => navigate(`/gamereview/${gameReviews.id}`)}>{gameReviews.title}</h1>
             <div>{gameReviews.headline}</div>
-            <div>{gameReviews.gameDescription}</div>
         </div>
     )
 }
