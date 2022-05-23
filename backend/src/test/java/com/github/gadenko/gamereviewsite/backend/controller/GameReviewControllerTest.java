@@ -38,6 +38,7 @@ class GameReviewControllerTest {
                 .title("TES5 Skyrim")
                 .headline("Hält der Titel was er verspricht?")
                 .gameDescription("Was für eine Fantasy Welt")
+                .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
                 .build();
         GameReview gameReview2 = GameReview
                 .builder()
@@ -64,6 +65,7 @@ class GameReviewControllerTest {
                         .title("TES5 Skyrim")
                         .headline("Hält der Titel was er verspricht?")
                         .gameDescription("Was für eine Fantasy Welt")
+                        .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
                         .build(),
                 GameReview
                         .builder()
