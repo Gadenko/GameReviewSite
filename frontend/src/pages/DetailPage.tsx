@@ -27,7 +27,7 @@ export default function DetailPage({deleteGameReview}: GameReviewDetailPageProps
                         <img
                             className="picture"
                             src={detailedGameReview.picture}
-                            alt={"https://www.google.de/url?sa=i&url=https%3A%2F%2Fstock.adobe.com%2Fde%2Fimages%2Fbaustelle-im-internet%2F171033343&psig=AOvVaw1jdncBwykP1lK_8eJBRd0J&ust=1653381719340000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCNCR8IOd9fcCFQAAAAAdAAAAABAD"}/>
+                            alt={"Hier sollte ein Bild sein vom Spiel."}/>
                     </div>}
             </div>
             <div>
@@ -42,9 +42,7 @@ export default function DetailPage({deleteGameReview}: GameReviewDetailPageProps
             {detailedGameReview &&
                 <button onClick={() => {
                     deleteGameReview(detailedGameReview.id)
-                    navigate('/')
-                }}>❌</button>}
-
+                    navigate('/')}}>❌</button>}
         </div>
 
     )
