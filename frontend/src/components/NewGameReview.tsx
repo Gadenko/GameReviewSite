@@ -1,31 +1,33 @@
 import {GameReview} from "../model/GameReview";
 import {FormEvent, useState} from "react";
 import {toast} from "react-toastify";
+import {useNavigate} from "react-router-dom";
 
 type NewGameReviewProps = {
-    addNewGameReview : (newGameReview : Omit<GameReview, "id">) => void
+    addNewGameReview: (newGameReview: Omit<GameReview, "id">) => void
 }
 
-export default function NewGameReview({addNewGameReview}: NewGameReviewProps){
+export default function NewGameReview({addNewGameReview}: NewGameReviewProps) {
     const [title, setTitle] = useState(``)
     const [headline, setHeadline] = useState(``)
     const [gameDescription, setGameDescription] = useState(``)
+    const navigate = useNavigate();
 
-    const onAdd = (event : FormEvent<HTMLFormElement>) => {
+    const onAdd = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        if (!title){
+        if (!title) {
             toast.error("You need a title");
             return
         }
-        if (!headline){
+        if (!headline) {
             toast.error("You need a headline");
             return
         }
-        if (!gameDescription){
+        if (!gameDescription) {
             toast.error("You need a gameDescription");
             return
         }
-        const newGameReview : Omit<GameReview, "id"> = {
+        const newGameReview: Omit<GameReview, "id"> = {
             title: title,
             headline: headline,
             gameDescription: gameDescription
@@ -34,8 +36,9 @@ export default function NewGameReview({addNewGameReview}: NewGameReviewProps){
         setTitle(``)
         setHeadline(``)
         setGameDescription(``)
+        navigate('/')
     }
-    return(
+    return (
         <div>
             <form onSubmit={onAdd}>
                 <input type={"text"}
@@ -51,7 +54,7 @@ export default function NewGameReview({addNewGameReview}: NewGameReviewProps){
                        value={gameDescription}
                        onChange={event => setGameDescription(event.target.value)}/>
                 <input type={"submit"}
-                       value={"Add GameReview"} />
+                       value={"Add GameReview"}/>
             </form>
         </div>
     )
