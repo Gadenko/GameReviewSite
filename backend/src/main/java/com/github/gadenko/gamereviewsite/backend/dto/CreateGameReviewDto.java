@@ -14,5 +14,6 @@ public class CreateGameReviewDto {
     private String title;
     private String headline;
     private String gameDescription;
+    private String picture;
 
 }
