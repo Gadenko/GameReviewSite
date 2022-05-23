@@ -36,9 +36,13 @@ public class GameReviewService {
         if(newGameReview.getGameDescription() == null){
             throw new IllegalArgumentException("GameDescription of the given gamereview was null");
         }
+        if(newGameReview.getPicture() == null){
+            throw new IllegalArgumentException("Picture of the given gamereview was null");
+        }
         newReview.setTitle(newGameReview.getTitle());
         newReview.setHeadline(newGameReview.getHeadline());
         newReview.setGameDescription(newGameReview.getGameDescription());
+        newReview.setPicture(newGameReview.getPicture());
         return gameReviewRepo.insert(newReview);
     }
 

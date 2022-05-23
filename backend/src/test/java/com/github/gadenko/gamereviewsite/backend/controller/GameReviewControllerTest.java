@@ -44,6 +44,7 @@ class GameReviewControllerTest {
                 .title("X4: Foundations")
                 .headline("Hält der Titel was er verspricht?")
                 .gameDescription("Schöner Weltraum Titel. Sehr viele möglickeiten der entfaltung im Space.")
+                .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
                 .build();
         gameReviewRepo.insert(gameReview1);
         gameReviewRepo.insert(gameReview2);
@@ -70,6 +71,7 @@ class GameReviewControllerTest {
                         .title("X4: Foundations")
                         .headline("Hält der Titel was er verspricht?")
                         .gameDescription("Schöner Weltraum Titel. Sehr viele möglickeiten der entfaltung im Space.")
+                        .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
                         .build());
         assertEquals(expected, actual);
     }
@@ -82,6 +84,7 @@ class GameReviewControllerTest {
                 .title("TES5 Skyrim")
                 .headline("Hält der Titel was er verspricht?")
                 .gameDescription("Was für eine Fantasy Welt")
+                .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
                 .build();
         GameReview addGameReview = testClient.post()
                 .uri("http://localhost:" + port + "/api/gamereview")
@@ -107,6 +110,7 @@ class GameReviewControllerTest {
                 .title("TES5 Skyrim")
                 .headline("Hält der Titel was er verspricht?")
                 .gameDescription("Was für eine Fantasy Welt")
+                .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
                 .build();
         Assertions.assertEquals(expected, actual);
     }
@@ -120,6 +124,7 @@ class GameReviewControllerTest {
                 .title("TES5 Skyrim")
                 .headline("Hält der Titel was er verspricht?")
                 .gameDescription("Was für eine Fantasy Welt")
+                .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
                 .build();
         testClient.post()
                 .uri("http://localhost:" + port + "/api/gamereview")
@@ -144,6 +149,7 @@ class GameReviewControllerTest {
                 .title("TES5 Skyrim")
                 .headline("Hält der Titel was er verspricht?")
                 .gameDescription("Was für eine Fantasy Welt")
+                .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
                 .build();
         //When
         GameReview actual = testClient.post()
@@ -163,6 +169,7 @@ class GameReviewControllerTest {
                 .title("TES5 Skyrim")
                 .headline("Hält der Titel was er verspricht?")
                 .gameDescription("Was für eine Fantasy Welt")
+                .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
                 .build();
         assertEquals(24, actual.getId().length());
         assertEquals(expected, actual);
@@ -174,6 +181,7 @@ class GameReviewControllerTest {
                 .builder()
                 .headline("Hält der Titel was er verspricht?")
                 .gameDescription("Was für eine Fantasy Welt")
+                .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
                 .build();
         testClient.post()
                 .uri("http://localhost:" + port + "/api/gamereview")
@@ -190,6 +198,7 @@ class GameReviewControllerTest {
                 .title("TES5 Skyrim")
                 .headline("Hält der Titel was er verspricht?")
                 .gameDescription("Was für eine Fantasy Welt")
+                .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
                 .build();
         //When
         GameReview addedGameReview = testClient.post()

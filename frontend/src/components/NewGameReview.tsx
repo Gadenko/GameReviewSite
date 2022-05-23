@@ -11,48 +11,59 @@ export default function NewGameReview({addNewGameReview}: NewGameReviewProps) {
     const [title, setTitle] = useState(``)
     const [headline, setHeadline] = useState(``)
     const [gameDescription, setGameDescription] = useState(``)
+    const [picture, setPicture] = useState(``)
     const navigate = useNavigate();
 
     const onAdd = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         if (!title) {
-            toast.error("You need a title");
+            toast.error("You need a title!");
             return
         }
         if (!headline) {
-            toast.error("You need a headline");
+            toast.error("You need a headline!");
             return
         }
         if (!gameDescription) {
-            toast.error("You need a gameDescription");
+            toast.error("You need a gameDescription!");
+            return
+        }
+        if (!picture) {
+            toast.error("You need a picture!");
             return
         }
         const newGameReview: Omit<GameReview, "id"> = {
             title: title,
             headline: headline,
-            gameDescription: gameDescription
+            gameDescription: gameDescription,
+            picture: picture
         }
         addNewGameReview(newGameReview);
         setTitle(``)
         setHeadline(``)
         setGameDescription(``)
+        setPicture(``)
         navigate('/')
     }
     return (
         <div>
             <form onSubmit={onAdd}>
                 <input type={"text"}
-                       placeholder={"Add a Title"}
+                       placeholder={"Add a Title!"}
                        value={title}
                        onChange={event => setTitle(event.target.value)}/>
                 <input type={"text"}
-                       placeholder={"Add a headline"}
+                       placeholder={"Add a headline!"}
                        value={headline}
                        onChange={event => setHeadline(event.target.value)}/>
                 <input type={"text"}
-                       placeholder={"Add a gameDescription"}
+                       placeholder={"Add a gameDescription!"}
                        value={gameDescription}
                        onChange={event => setGameDescription(event.target.value)}/>
+                <input type={"url"}
+                       placeholder={"Add a picture!"}
+                       value={picture}
+                       onChange={event => setPicture(event.target.value)}/>
                 <input type={"submit"}
                        value={"Add GameReview"}/>
             </form>

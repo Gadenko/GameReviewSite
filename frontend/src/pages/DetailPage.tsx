@@ -26,6 +26,8 @@ export default function DetailPage({deleteGameReview}: GameReviewDetailPageProps
                 <p>{detailedGameReview.headline}{''}</p>}
             {detailedGameReview &&
                 <div>{detailedGameReview.gameDescription}{''}</div>}
+            {detailedGameReview &&
+                <div><img src={detailedGameReview.picture} alt={"https://www.google.de/url?sa=i&url=https%3A%2F%2Fstock.adobe.com%2Fde%2Fimages%2Fbaustelle-im-internet%2F171033343&psig=AOvVaw1jdncBwykP1lK_8eJBRd0J&ust=1653381719340000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCNCR8IOd9fcCFQAAAAAdAAAAABAD"}/></div>}
             <button onClick={() => navigate(`/`)}>Back</button>
             {detailedGameReview &&
             <button onClick={() => {deleteGameReview(detailedGameReview.id)
