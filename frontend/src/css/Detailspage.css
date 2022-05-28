@@ -1,3 +1,4 @@
+
 .detail{
     display: block;
     width: 80%;
@@ -9,7 +10,7 @@
 }
 .picture-detailspage{
     float: left;
-    height: auto;
+    height: 20%;
     width: 20%;
     border-radius: 30px;
 }
