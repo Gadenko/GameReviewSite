@@ -1,8 +1,7 @@
 
 .detail{
-    display: block;
-    width: 80%;
-    height: 40%;
+    display: flex;
+    width: auto;
     height: auto;
     border: 1px solid rgba(0, 0, 0, 0.15);
     background-color: lightgrey;

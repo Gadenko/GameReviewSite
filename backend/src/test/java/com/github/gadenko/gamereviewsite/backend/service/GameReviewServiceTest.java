@@ -27,6 +27,7 @@ class GameReviewServiceTest {
                .headline("Hält der Titel was er verspricht?")
                .gameDescription("Was für eine Fantasy Welt")
                .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
+               .category("RPG")
                .build();
        GameReview gameReview2 = GameReview
                .builder()
@@ -35,6 +36,7 @@ class GameReviewServiceTest {
                .headline("Hält der Titel was er verspricht?")
                .gameDescription("Schöner Weltraum Titel. Sehr viele möglickeiten der entfaltung im Space.")
                .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
+               .category("Simulation")
                .build();
 
         when(gameReviewRepo.findAll()).thenReturn(List.of(gameReview1,gameReview2));
@@ -56,6 +58,7 @@ class GameReviewServiceTest {
                         .headline("Hält der Titel was er verspricht?")
                         .gameDescription("Schöner Weltraum Titel. Sehr viele möglickeiten der entfaltung im Space.")
                         .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
+                        .category("Simulation")
                         .build()));
         //When
         GameReview actual = gameReviewService.getGameReviewById("1");
@@ -67,6 +70,7 @@ class GameReviewServiceTest {
                 .headline("Hält der Titel was er verspricht?")
                 .gameDescription("Schöner Weltraum Titel. Sehr viele möglickeiten der entfaltung im Space.")
                 .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
+                .category("Simulation")
                 .build();
 
         verify(gameReviewRepo).findById("1");
@@ -91,6 +95,7 @@ class GameReviewServiceTest {
                 .headline("Hält der Titel was er verspricht?")
                 .gameDescription("Was für eine Fantasy Welt")
                 .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
+                .category("RPG")
                 .build();
         when(gameReviewRepo.insert(gameReviewToAdd)).thenReturn(GameReview
                 .builder()
@@ -99,6 +104,7 @@ class GameReviewServiceTest {
                 .headline("Hält der Titel was er verspricht?")
                 .gameDescription("Was für eine Fantasy Welt")
                 .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
+                .category("RPG")
                 .build());
         //WHEN
         CreateGameReviewDto newGameReview = CreateGameReviewDto.builder()
@@ -106,6 +112,7 @@ class GameReviewServiceTest {
                 .headline("Hält der Titel was er verspricht?")
                 .gameDescription("Was für eine Fantasy Welt")
                 .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
+                .category("RPG")
                 .build();
         GameReview actual = gameReviewService.addNewGameReview(newGameReview);
 
@@ -116,6 +123,7 @@ class GameReviewServiceTest {
                 .headline("Hält der Titel was er verspricht?")
                 .gameDescription("Was für eine Fantasy Welt")
                 .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
+                .category("RPG")
                 .build();
         verify(gameReviewRepo).insert(gameReviewToAdd);
         assertEquals(expected,actual);
@@ -140,6 +148,7 @@ class GameReviewServiceTest {
                 .headline("Hält der Titel was er verspricht?")
                 .gameDescription("Was für eine Fantasy Welt")
                 .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
+                .category("RPG")
                 .build();
         when(gameReviewRepo.save(gameReview)).thenReturn(GameReview
                 .builder()
@@ -148,6 +157,7 @@ class GameReviewServiceTest {
                 .headline("Hält der Titel was er verspricht?")
                 .gameDescription("Schöner Weltraum Titel. Sehr viele möglickeiten der entfaltung im Space.")
                 .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
+                .category("Simulation")
                 .build());
         //When
         GameReview actual = gameReviewService.updateGameReviewById(gameReview);
@@ -159,6 +169,7 @@ class GameReviewServiceTest {
                 .headline("Hält der Titel was er verspricht?")
                 .gameDescription("Schöner Weltraum Titel. Sehr viele möglickeiten der entfaltung im Space.")
                 .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
+                .category("Simulation")
                 .build();
         assertEquals(expected, actual);
     }
