@@ -9,15 +9,15 @@ type GameReviewCardProps = {
 export default function GameReviewCard({gameReviews}: GameReviewCardProps) {
     const navigate = useNavigate();
     return (
-        <div
-            className="card"
+        <div className={"card"}
             onClick={() => navigate(`/gamereview/${gameReviews.id}`)}>
-            <div><img
-                className="picture"
-                src={gameReviews.picture}
-                alt={"Hier sollte ein Bild sein vom Spiel."}/>
+            <div className="picture-GameCard">
+                <img
+                    className="picture-GameCard-Detailed"
+                    src={gameReviews.picture}
+                    alt={"Hier sollte ein Bild sein vom Spiel."}/>
             </div>
-            <div>
+            <div className="cardcontainer">
                 <h1>{gameReviews.title}</h1>
                 <div>{gameReviews.headline}</div>
             </div>

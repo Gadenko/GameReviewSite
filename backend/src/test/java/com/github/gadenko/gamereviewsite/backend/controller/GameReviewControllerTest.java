@@ -219,4 +219,100 @@ class GameReviewControllerTest {
                 //THEN
                 .expectStatus().is2xxSuccessful();
     }
+
+    @Test
+    void updateGameReviewById_whenValid_thenReturnUpdatedReview() {
+        //Given
+        GameReview gameReview = GameReview
+                .builder()
+                .title("TES5 Skyrim")
+                .headline("Hält der Titel was er verspricht?")
+                .gameDescription("Was für eine Fantasy Welt")
+                .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
+                .build();
+        GameReview addedGameReview = testClient.post()
+                .uri("http://localhost:" + port + "/api/gamereview")
+                .bodyValue(gameReview)
+                .exchange()
+                .expectStatus().is2xxSuccessful()
+                .expectBody(GameReview.class)
+                .returnResult()
+                .getResponseBody();
+        //When
+        assertNotNull(addedGameReview);
+        GameReview updatedGameReview = GameReview
+                .builder()
+                .id(addedGameReview.getId())
+                .title("X4: Foundations")
+                .headline("Hält der Titel was er verspricht?")
+                .gameDescription("Schöner Weltraum Titel. Sehr viele möglickeiten der entfaltung im Space.")
+                .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
+                .build();
+        GameReview actual = testClient.put()
+                .uri("http://localhost:" + port + "/api/gamereview")
+                .bodyValue(updatedGameReview)
+                .exchange()
+                .expectStatus().is2xxSuccessful()
+                .expectBody(GameReview.class)
+                .returnResult()
+                .getResponseBody();
+        //Then
+        GameReview expected = GameReview
+                .builder()
+                .id(addedGameReview.getId())
+                .title("X4: Foundations")
+                .headline("Hält der Titel was er verspricht?")
+                .gameDescription("Schöner Weltraum Titel. Sehr viele möglickeiten der entfaltung im Space.")
+                .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
+                .build();
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    void updateGameReviewById_whenIdDoesNotExist_thenReturnNewReview(){
+        //Given
+        GameReview gameReview = GameReview
+                .builder()
+                .title("TES5 Skyrim")
+                .headline("Hält der Titel was er verspricht?")
+                .gameDescription("Was für eine Fantasy Welt")
+                .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
+                .build();
+        GameReview addedGameReview = testClient.post()
+                .uri("http://localhost:" + port + "/api/gamereview")
+                .bodyValue(gameReview)
+                .exchange()
+                .expectStatus().is2xxSuccessful()
+                .expectBody(GameReview.class)
+                .returnResult()
+                .getResponseBody();
+        //When
+        GameReview updatedGameReview = GameReview
+                .builder()
+                .id("23")
+                .title("X4: Foundations")
+                .headline("Hält der Titel was er verspricht?")
+                .gameDescription("Schöner Weltraum Titel. Sehr viele möglickeiten der entfaltung im Space.")
+                .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
+                .build();
+        testClient.put()
+                .uri("http://localhost:" + port + "/api/gamereview")
+                .bodyValue(updatedGameReview)
+                .exchange()
+                .expectStatus().is2xxSuccessful()
+                .expectBody(GameReview.class)
+                .returnResult()
+                .getResponseBody();
+        List<GameReview> actual = testClient.get()
+                .uri("/api/gamereview")
+                .exchange()
+                .expectStatus().is2xxSuccessful()
+                .expectBodyList(GameReview.class)
+                .returnResult()
+                .getResponseBody();
+        //Then
+        assertNotNull(addedGameReview);
+        List<GameReview> expected = List.of(addedGameReview,updatedGameReview);
+        assertEquals(expected, actual);
+    }
 }

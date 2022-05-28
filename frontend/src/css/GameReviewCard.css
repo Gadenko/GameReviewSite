@@ -1,19 +1,28 @@
-.card{
-    display: block;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 50%;
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    background-color: lightgrey;
-    border-radius: 30px;
-}
-.picture{
+.card {
     display: flex;
+    align-content: center;
+    background-color: lightgrey;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 0;
+    width: 80%;
+    height: auto;
+}
+
+.picture-GameCard {
     float: left;
+    height: auto;
     width: 40%;
-    height: 40%;
-    margin-right: 55px;
-    padding: 22px;
+    border-radius: 20px;
+}
+.picture-GameCard-Detailed{
+    float: left;
+    height: auto;
+    width: 40%;
+    border-radius: 20px;
+}
+
+.cardcontainer {
+    position: center;
+    margin-left: -222px;
 }
