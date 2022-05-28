@@ -69,12 +69,15 @@ export default function EditGameReview({gameReview, updateGameReview}: EditGameR
                     onChange={e => {
                         setCategory(e.target.value)
                     }}>
-                    <option>Strategie</option>
-                    <option>RPG</option>
-                    <option>Fantasy</option>
-                    <option>Simulation</option>
-                    <option>Abenteuer</option>
-                    <option>Sport-und-Rennspiel</option>
+                    <optgroup label="=Wähle eine Kategorie=">
+                        <option>Strategie</option>
+                        <option>RPG</option>
+                        <option>Fantasy</option>
+                        <option>Fantasy</option>
+                        <option>Simulation</option>
+                        <option>Abenteuer</option>
+                        <option>Sport-und-Rennspiel</option>
+                    </optgroup>
                 </select>
                 <button type={"submit"}>Save</button>
             </form>
