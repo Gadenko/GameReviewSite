@@ -72,13 +72,16 @@ export default function NewGameReview({addNewGameReview}: NewGameReviewProps) {
                        value={picture}
                        onChange={event => setPicture(event.target.value)}/>
                 <select
-                    value={category}>
-                    <option>Strategie</option>
-                    <option>RPG</option>
-                    <option>Fantasy</option>
-                    <option>Simulation</option>
-                    <option>Abenteuer</option>
-                    <option>Sport-und-Rennspiel</option>
+                    value={category}
+                    onChange={event => setCategory(event.target.value)}>
+                    <optgroup label="=Wähle eine Kategorie=">
+                        <option>Strategie</option>
+                        <option>RPG</option>
+                        <option>Fantasy</option>
+                        <option>Simulation</option>
+                        <option>Abenteuer</option>
+                        <option>Sport-und-Rennspiel</option>
+                    </optgroup>
                 </select>
                 <input type={"submit"}
                        value={"Add GameReview"}/>
