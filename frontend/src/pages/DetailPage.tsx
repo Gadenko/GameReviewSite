@@ -36,7 +36,7 @@ export default function DetailPage({deleteGameReview, saveGameReview}: GameRevie
     }
 
     return (
-        <div className="detail">
+        <div className="detail-page">
             {detailedGameReview &&
                 <div>
                     {editingEnabled

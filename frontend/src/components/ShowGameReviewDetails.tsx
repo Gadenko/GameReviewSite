@@ -1,4 +1,5 @@
 import {GameReview} from "../model/GameReview";
+import "../css/ShowGameReviewDetails.css"
 
 type ShowGameReviewDetailsProps = {
     gameReview: GameReview
@@ -8,10 +9,9 @@ type ShowGameReviewDetailsProps = {
 export default function ShowGameReviewDetails({gameReview}: ShowGameReviewDetailsProps) {
 
     return (
-        <div>
-            <picture className={"picture"}>
+        <div className="ShowDetailed">
+            <picture>
                 <img
-                    className="picture"
                     src={gameReview.picture}
                     alt={"Hier sollte ein Bild sein vom Spiel."}/>
             </picture>
@@ -19,6 +19,7 @@ export default function ShowGameReviewDetails({gameReview}: ShowGameReviewDetail
                 <h1>{gameReview.title}</h1>
                 <div>{gameReview.headline}</div>
                 <div>{gameReview.gameDescription}</div>
+                <h2>{gameReview.category}</h2>
             </div>
         </div>
     )

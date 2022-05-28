@@ -4,4 +4,5 @@ export type GameReview = {
     headline: string;
     gameDescription: string;
     picture: string;
+    category: string;
 }

@@ -20,5 +20,6 @@ public class GameReview {
     private String headline;
     private String gameDescription;
     private String picture;
+    private String category;
 
 }
