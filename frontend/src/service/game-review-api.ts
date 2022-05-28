@@ -20,3 +20,8 @@ export function removeGameReview(id: string){
     return axios.delete(`/api/gamereview/${id}`)
         .then(response => response.data)
 }
+
+export const putGameReview: (updatedGameReview: GameReview) => Promise<GameReview> = (updatedGameReview) => {
+    return axios.put("/api/gamereview", updatedGameReview)
+        .then(reponse => reponse.data)
+}

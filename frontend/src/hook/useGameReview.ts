@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {GameReview} from "../model/GameReview";
-import {getAllGameReviews, postNewGameReview, removeGameReview} from "../service/game-review-api";
+import {getAllGameReviews, postNewGameReview, putGameReview, removeGameReview} from "../service/game-review-api";
 import {toast} from "react-toastify";
 
 
@@ -27,6 +27,17 @@ export default function useGameReview(){
             .catch(() => toast.error("Error while removing GameReview"))
     }
 
-    return {gameReviews, addNewGameReview, deleteGameReview}
+    const saveGameReview = (gameReviewToUpdate: GameReview) => {
+        return putGameReview(gameReviewToUpdate)
+            .then(updatedGameReview => {
+                setGameReview(gameReviews.map(review => review.id === updatedGameReview.id? updatedGameReview: review))
+                toast.success("GameReview: " + updatedGameReview.title + " updated")
+                return updatedGameReview})
+            .catch(() => {
+                toast.error("Connection failed! Please retry later.")
+            })
+    }
+
+    return {gameReviews, addNewGameReview, deleteGameReview, saveGameReview}
 
 }

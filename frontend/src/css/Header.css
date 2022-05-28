@@ -1,3 +1,4 @@
+
 .Header-Picture{
     height: 100px;
     width: 100px;
@@ -5,6 +6,9 @@
     display: flex;
     position: fixed;
     left: 22px;
+}
+.Header{
+    margin-bottom: 120px;
 }
 .Nav{
     display: flex;
@@ -16,6 +20,7 @@
     background: cadetblue;
     box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
     z-index: 10;
+    margin-bottom: 50px;
 }
 .nav-list{
     display: flex;

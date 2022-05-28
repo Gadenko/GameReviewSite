@@ -130,4 +130,36 @@ class GameReviewServiceTest {
         //THEN
         verify(gameReviewRepo).deleteById("1");
     }
+
+    @Test
+    void updateGameReviewById() {
+        //Given
+        GameReview gameReview = GameReview
+                .builder()
+                .title("TES5 Skyrim")
+                .headline("Hält der Titel was er verspricht?")
+                .gameDescription("Was für eine Fantasy Welt")
+                .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
+                .build();
+        when(gameReviewRepo.save(gameReview)).thenReturn(GameReview
+                .builder()
+                .id("1234-test")
+                .title("X4: Foundations")
+                .headline("Hält der Titel was er verspricht?")
+                .gameDescription("Schöner Weltraum Titel. Sehr viele möglickeiten der entfaltung im Space.")
+                .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
+                .build());
+        //When
+        GameReview actual = gameReviewService.updateGameReviewById(gameReview);
+        //Then
+        GameReview expected = gameReview
+                .builder()
+                .id("1234-test")
+                .title("X4: Foundations")
+                .headline("Hält der Titel was er verspricht?")
+                .gameDescription("Schöner Weltraum Titel. Sehr viele möglickeiten der entfaltung im Space.")
+                .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
+                .build();
+        assertEquals(expected, actual);
+    }
 }

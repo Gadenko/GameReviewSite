@@ -37,4 +37,8 @@ public class GameReviewController {
         gameReviewService.deleteGameReview(id);
     }
 
+    @PutMapping()
+    public GameReview updateGameReviewById(@RequestBody GameReview updatedGameReview){
+     return gameReviewService.updateGameReviewById(updatedGameReview);
+    }
 }

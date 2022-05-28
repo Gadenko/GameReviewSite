@@ -1,0 +1,8 @@
+
+.Homepage{
+    display: block;
+    justify-content: flex-start;
+    position: fixed;
+    width: 100%;
+    align-content:space-between;
+}

@@ -50,4 +50,7 @@ public class GameReviewService {
         gameReviewRepo.deleteById(id);
     }
 
+    public GameReview updateGameReviewById(GameReview updatedGameReview) {
+        return gameReviewRepo.save(updatedGameReview);
+    }
 }

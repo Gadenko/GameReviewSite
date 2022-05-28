@@ -11,8 +11,7 @@ import "./css/App.css"
 
 export default function App() {
 
-    const {gameReviews, deleteGameReview, addNewGameReview} = useGameReview();
-
+    const {gameReviews, deleteGameReview, addNewGameReview, saveGameReview} = useGameReview();
 
     return (
         <div className="APP-Style">
@@ -24,6 +23,7 @@ export default function App() {
                            gameReviews={gameReviews}/>}/>
                 <Route path={'/gamereview/:id'}
                        element={<DetailPage
+                           saveGameReview={saveGameReview}
                            deleteGameReview={deleteGameReview}/>}/>
                 <Route path="/addgamereview"
                        element={<AddReviewPage
