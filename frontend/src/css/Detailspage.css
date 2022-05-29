@@ -1,11 +1,12 @@
 
-.detail{
-    display: flex;
+.detail-page{
+    display: block;
     width: auto;
     height: auto;
     border: 1px solid rgba(0, 0, 0, 0.15);
     background-color: lightgrey;
     border-radius: 30px;
+    margin-top: 60px;
 }
 .picture-detailspage{
     float: left;
