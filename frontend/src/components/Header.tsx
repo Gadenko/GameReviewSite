@@ -1,17 +1,24 @@
 import "../css/Header.css"
+import {FcDatabase, FcPlus, FcHome} from "react-icons/fc";
+
 
 export default function Header() {
+
     return (
-        <header className="Header">
-            <nav className="Nav">
-                <img className="Header-Picture"
-                     src={"https://png.pngtree.com/png-clipart/20200720/original/pngtree-g-gaming-logo-png-image_4783094.jpg"}
-                     alt="logo"/>
-                <ul className="nav-list">
-                    <a className="Link" href="/">Home</a>
-                    <a className="Link" href="/#/addgamereview">AddGameReview</a>
-                </ul>
-            </nav>
-        </header>
+        <div className="navbar">
+            <div className="dropdown">
+                <button
+                    className="dropbtn"><FcDatabase/>
+                </button>
+                <div className="dropdown-content">
+                    <a href="/#/addgamereview"><FcPlus/>GameReview</a>
+                </div>
+            </div>
+
+            <a href="/"><FcHome/></a>
+            <img className="header-logo"
+                 src="https://www.creativefabrica.com/wp-content/uploads/2020/11/01/Hunter-Squad-Esport-Gaming-Logo-Graphics-6405081-1.jpg"
+                 alt="Hier sollte ein Bild sein."/>
+        </div>
     )
 }
