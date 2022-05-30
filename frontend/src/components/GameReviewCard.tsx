@@ -18,8 +18,8 @@ export default function GameReviewCard({gameReviews}: GameReviewCardProps) {
                     alt={"Hier sollte ein Bild sein vom Spiel."}/>
             </div>
             <div className="cardcontainer">
-                <h1>{gameReviews.title}</h1>
-                <div>{gameReviews.headline}</div>
+                <h1 className="title-card">{gameReviews.title}</h1>
+                <div className="headline-card">{gameReviews.headline}</div>
             </div>
         </div>
     )

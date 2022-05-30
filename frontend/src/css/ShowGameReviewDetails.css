@@ -1,6 +1,7 @@
-.cardcontainer{
-    margin-left: 22px;
-}
-.ShowDetailed{
-    background-color: lightgrey;
+
+.detailed-picture{
+    border-radius: 30px;
+    height: auto;
+    width: 40%;
+    border-radius: 30px;
 }

@@ -1,28 +1,25 @@
 
 .card {
-    display: block;
     background-color: lightgrey;
-    border-radius: 20px;
-    margin: 10px;
-    width: 90%;
-    height: auto;
-    margin-top: 44px;
+    margin-top: 10px;
+    border-radius: 30px;
 }
 
 .picture-GameCard {
-    float: left;
-    height: auto;
-    width: 40%;
-    border-radius: 20px;
+    border-radius: 30px;
+    font-size: 15px;
+    padding: 10px;
+    margin-bottom: -20px;
+}
+.headline-card{
+    padding: 10px;
+}
+.title-card{
+    padding: 10px;
+    margin-bottom: -20px;
 }
 .picture-GameCard-Detailed{
-    float: left;
     height: auto;
     width: 40%;
-    border-radius: 20px;
-}
-
-.cardcontainer {
-    position: center;
-    margin-left: -222px;
+    border-radius: 30px;
 }
