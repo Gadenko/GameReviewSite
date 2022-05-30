@@ -16,10 +16,9 @@
 }
 .title-card{
     padding: 10px;
-    margin-bottom: -15px;
+    margin-bottom: -20px;
 }
 .picture-GameCard-Detailed{
-    align-items: center;
     height: auto;
     width: 40%;
     border-radius: 30px;
