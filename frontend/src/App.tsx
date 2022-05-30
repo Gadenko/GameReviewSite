@@ -13,7 +13,7 @@ export default function App() {
     const {gameReviews, deleteGameReview, addNewGameReview, saveGameReview} = useGameReview();
 
     return (
-        <div className="APP-Style">
+        <div>
             <ToastContainer/>
             <Header/>
             <Routes>
