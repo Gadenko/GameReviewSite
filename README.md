@@ -14,3 +14,5 @@ https://capstone-game-review.herokuapp.com/
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=gadenko_GameReviewSite_backend&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=gadenko_GameReviewSite_backend)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=gadenko_GameReviewSite_backend&metric=coverage)](https://sonarcloud.io/summary/new_code?id=gadenko_GameReviewSite_backend)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=gadenko_GameReviewSite_backend&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=gadenko_GameReviewSite_backend)
+
+![image](https://user-images.githubusercontent.com/102051504/170974377-c6896bad-f88f-430a-b7f7-9d923cf50239.png)
