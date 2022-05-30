@@ -1,5 +1,5 @@
 import "../css/Header.css"
-import {FcDatabase, FcPlus, FcHome} from "react-icons/fc";
+import {FcDatabase, FcHome} from "react-icons/fc";
 
 
 export default function Header() {
@@ -11,8 +11,9 @@ export default function Header() {
                     className="dropbtn"><FcDatabase/>
                 </button>
                 <div className="dropdown-content">
-                    <a href="/#/addgamereview"><FcPlus/>GameReview</a>
+                    <a href="/#/addgamereview">AddGameReview</a>
                 </div>
+
             </div>
 
             <a href="/"><FcHome/></a>
