@@ -14,6 +14,7 @@ export default function NewGameReview({addNewGameReview}: NewGameReviewProps) {
     const [gameDescription, setGameDescription] = useState(``)
     const [picture, setPicture] = useState(``)
     const [category, setCategory] = useState('')
+    const [ratingGametime, setRatingGametime] = useState('')
     const navigate = useNavigate();
 
     const onAdd = (event: FormEvent<HTMLFormElement>) => {
@@ -43,7 +44,8 @@ export default function NewGameReview({addNewGameReview}: NewGameReviewProps) {
             headline: headline,
             gameDescription: gameDescription,
             picture: picture,
-            category: category
+            category: category,
+            ratingGametime: ratingGametime
         }
         addNewGameReview(newGameReview);
         setTitle(``)
@@ -84,6 +86,7 @@ export default function NewGameReview({addNewGameReview}: NewGameReviewProps) {
                         <option>Sport-und-Rennspiel</option>
                     </optgroup>
                 </select>
+
                 <input type={"submit"}
                        value={"Add GameReview"}/>
             </form>

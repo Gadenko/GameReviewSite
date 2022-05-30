@@ -13,6 +13,7 @@ export default function EditGameReview({gameReview, updateGameReview}: EditGameR
     const [gameDescription, setGameDescription] = useState<string>(gameReview.gameDescription)
     const [picture, setPicture] = useState<string>(gameReview.picture)
     const [category, setCategory] = useState<string>(gameReview.category)
+    const [ratingGametime, setRatingGametime] = useState<string>(gameReview.ratingGametime)
 
     const saveNewGameReview = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault()
@@ -23,7 +24,8 @@ export default function EditGameReview({gameReview, updateGameReview}: EditGameR
             headline: headline,
             gameDescription: gameDescription,
             picture: picture,
-            category: category
+            category: category,
+            ratingGametime: ratingGametime
         }
         updateGameReview(updatedReview)
     }
