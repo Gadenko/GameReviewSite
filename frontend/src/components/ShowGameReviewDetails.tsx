@@ -11,7 +11,7 @@ export default function ShowGameReviewDetails({gameReview}: ShowGameReviewDetail
     return (
         <div className="ShowDetailed">
             <picture>
-                <img
+                <img className="detailed-picture"
                     src={gameReview.picture}
                     alt={"Hier sollte ein Bild sein vom Spiel."}/>
             </picture>

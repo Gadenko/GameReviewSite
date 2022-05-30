@@ -1,9 +1,7 @@
 
 .Homepage{
-    display: block;
-    justify-content: flex-start;
-    position: fixed;
-    width: 100%;
-    align-content:space-between;
-    margin-top: 44px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 60px;
 }
