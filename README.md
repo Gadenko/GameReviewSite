@@ -1,4 +1,4 @@
-# GameReviewSite (This is a MobileApp)
+# GameReviewSite (This is a MobileWebApp)
 
 With this site you can read more about some games on the Market. 
 First you can just handle this site as Admin. No any user can use this. 
