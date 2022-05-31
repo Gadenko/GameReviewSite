@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import GameReviewHomePage from "./pages/GameReviewHomePage";
 import DetailPage from "./pages/DetailPage";
 import AddReviewPage from "./pages/AddReviewPage";
+import "./css/APP.css"
 
 export default function App() {
 
@@ -26,7 +27,8 @@ export default function App() {
                            deleteGameReview={deleteGameReview}/>}/>
                 <Route path="/addgamereview"
                        element={<AddReviewPage
-                           addNewGameReview={addNewGameReview}/>}/>
+                           addNewGameReview={addNewGameReview}
+                       />}/>
             </Routes>
         </div>
     );
