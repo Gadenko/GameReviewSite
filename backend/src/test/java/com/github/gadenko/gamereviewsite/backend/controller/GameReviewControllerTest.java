@@ -40,6 +40,8 @@ class GameReviewControllerTest {
                 .gameDescription("Was für eine Fantasy Welt")
                 .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
                 .category("RPG")
+                .graphic(1)
+                .sound(1)
                 .build();
         GameReview gameReview2 = GameReview
                 .builder()
@@ -48,6 +50,8 @@ class GameReviewControllerTest {
                 .gameDescription("Schöner Weltraum Titel. Sehr viele möglickeiten der entfaltung im Space.")
                 .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
                 .category("Simulation")
+                .graphic(1)
+                .sound(1)
                 .build();
         gameReviewRepo.insert(gameReview1);
         gameReviewRepo.insert(gameReview2);
@@ -69,6 +73,8 @@ class GameReviewControllerTest {
                         .gameDescription("Was für eine Fantasy Welt")
                         .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
                         .category("RPG")
+                        .graphic(1)
+                        .sound(1)
                         .build(),
                 GameReview
                         .builder()
@@ -78,6 +84,8 @@ class GameReviewControllerTest {
                         .gameDescription("Schöner Weltraum Titel. Sehr viele möglickeiten der entfaltung im Space.")
                         .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
                         .category("Simulation")
+                        .graphic(1)
+                        .sound(1)
                         .build());
         assertEquals(expected, actual);
     }
@@ -92,6 +100,8 @@ class GameReviewControllerTest {
                 .gameDescription("Was für eine Fantasy Welt")
                 .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
                 .category("RPG")
+                .graphic(1)
+                .sound(1)
                 .build();
         GameReview addGameReview = testClient.post()
                 .uri("http://localhost:" + port + "/api/gamereview")
@@ -119,6 +129,8 @@ class GameReviewControllerTest {
                 .gameDescription("Was für eine Fantasy Welt")
                 .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
                 .category("RPG")
+                .graphic(1)
+                .sound(1)
                 .build();
         Assertions.assertEquals(expected, actual);
     }
@@ -134,6 +146,8 @@ class GameReviewControllerTest {
                 .gameDescription("Was für eine Fantasy Welt")
                 .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
                 .category("RPG")
+                .graphic(1)
+                .sound(1)
                 .build();
         testClient.post()
                 .uri("http://localhost:" + port + "/api/gamereview")
@@ -160,6 +174,8 @@ class GameReviewControllerTest {
                 .gameDescription("Was für eine Fantasy Welt")
                 .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
                 .category("RPG")
+                .graphic(1)
+                .sound(1)
                 .build();
         //When
         GameReview actual = testClient.post()
@@ -181,6 +197,8 @@ class GameReviewControllerTest {
                 .gameDescription("Was für eine Fantasy Welt")
                 .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
                 .category("RPG")
+                .graphic(1)
+                .sound(1)
                 .build();
         assertEquals(24, actual.getId().length());
         assertEquals(expected, actual);
@@ -194,6 +212,8 @@ class GameReviewControllerTest {
                 .gameDescription("Was für eine Fantasy Welt")
                 .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
                 .category("RPG")
+                .graphic(1)
+                .sound(1)
                 .build();
         testClient.post()
                 .uri("http://localhost:" + port + "/api/gamereview")
@@ -212,6 +232,8 @@ class GameReviewControllerTest {
                 .gameDescription("Was für eine Fantasy Welt")
                 .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
                 .category("RPG")
+                .graphic(1)
+                .sound(1)
                 .build();
         //When
         GameReview addedGameReview = testClient.post()
@@ -241,6 +263,8 @@ class GameReviewControllerTest {
                 .gameDescription("Was für eine Fantasy Welt")
                 .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
                 .category("RPG")
+                .graphic(1)
+                .sound(1)
                 .build();
         GameReview addedGameReview = testClient.post()
                 .uri("http://localhost:" + port + "/api/gamereview")
@@ -260,6 +284,8 @@ class GameReviewControllerTest {
                 .gameDescription("Schöner Weltraum Titel. Sehr viele möglickeiten der entfaltung im Space.")
                 .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
                 .category("Simulation")
+                .graphic(1)
+                .sound(1)
                 .build();
         GameReview actual = testClient.put()
                 .uri("http://localhost:" + port + "/api/gamereview")
@@ -278,6 +304,8 @@ class GameReviewControllerTest {
                 .gameDescription("Schöner Weltraum Titel. Sehr viele möglickeiten der entfaltung im Space.")
                 .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
                 .category("Simulation")
+                .graphic(1)
+                .sound(1)
                 .build();
         assertEquals(expected,actual);
     }
@@ -292,6 +320,8 @@ class GameReviewControllerTest {
                 .gameDescription("Was für eine Fantasy Welt")
                 .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
                 .category("RPG")
+                .graphic(1)
+                .sound(1)
                 .build();
         GameReview addedGameReview = testClient.post()
                 .uri("http://localhost:" + port + "/api/gamereview")
@@ -310,6 +340,8 @@ class GameReviewControllerTest {
                 .gameDescription("Schöner Weltraum Titel. Sehr viele möglickeiten der entfaltung im Space.")
                 .picture("https://upload.wikimedia.org/wikipedia/en/2/26/X4_Foundations_Steam_Cover_Art.jpg")
                 .category("Simulation")
+                .graphic(1)
+                .sound(1)
                 .build();
         testClient.put()
                 .uri("http://localhost:" + port + "/api/gamereview")

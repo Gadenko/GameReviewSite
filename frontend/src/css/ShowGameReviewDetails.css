@@ -5,3 +5,15 @@
     width: 40%;
     border-radius: 30px;
 }
+.gametime-card{
+    border-radius: 8px;
+    background-color: #478a78;
+}
+.gametime-p{
+    margin-bottom: -10px;
+    padding: 5px;
+    font-weight: bold;
+}
+.gametime-rating{
+    padding: 5px;
+}

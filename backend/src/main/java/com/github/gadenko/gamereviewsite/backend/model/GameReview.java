@@ -21,6 +21,7 @@ public class GameReview {
     private String gameDescription;
     private String picture;
     private String category;
-    private String ratingGametime;
+    private Integer graphic;
+    private Integer sound;
 
 }

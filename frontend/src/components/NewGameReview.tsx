@@ -1,8 +1,9 @@
 import {GameReview} from "../model/GameReview";
-import {FormEvent, useState} from "react";
+import React, {FormEvent, useState} from "react";
 import {toast} from "react-toastify";
 import {useNavigate} from "react-router-dom";
 import "../css/NewGameReview.css"
+import {Box, Rating, Typography} from "@mui/material";
 
 type NewGameReviewProps = {
     addNewGameReview: (newGameReview: Omit<GameReview, "id">) => void
@@ -14,7 +15,8 @@ export default function NewGameReview({addNewGameReview}: NewGameReviewProps) {
     const [gameDescription, setGameDescription] = useState(``)
     const [picture, setPicture] = useState(``)
     const [category, setCategory] = useState('')
-    const [ratingGametime, setRatingGametime] = useState('')
+    const [graphic, setGraphic] = useState<number | null>(null)
+    const [sound, setSound] = useState<number | null>(null)
     const navigate = useNavigate();
 
     const onAdd = (event: FormEvent<HTMLFormElement>) => {
@@ -45,7 +47,8 @@ export default function NewGameReview({addNewGameReview}: NewGameReviewProps) {
             gameDescription: gameDescription,
             picture: picture,
             category: category,
-            ratingGametime: ratingGametime
+            graphic: graphic,
+            sound: sound
         }
         addNewGameReview(newGameReview);
         setTitle(``)
@@ -53,6 +56,8 @@ export default function NewGameReview({addNewGameReview}: NewGameReviewProps) {
         setGameDescription(``)
         setPicture(``)
         setCategory(``)
+        setGraphic(null)
+        setSound(null)
         navigate('/')
     }
     return (
@@ -86,7 +91,28 @@ export default function NewGameReview({addNewGameReview}: NewGameReviewProps) {
                         <option>Sport-und-Rennspiel</option>
                     </optgroup>
                 </select>
-
+                <Box
+                    sx={{
+                        '& > legend': { mt: 2 },
+                    }}
+                >
+                    <Typography component="legend">Grafik</Typography>
+                    <Rating
+                        name="simple-controlled"
+                        value={graphic}
+                        onChange={(event, newValue) => {
+                            setGraphic(newValue);
+                        }}
+                    />
+                    <Typography component="legend">Sound</Typography>
+                    <Rating
+                        name="simple-controlled"
+                        value={sound}
+                        onChange={(event, newValue) => {
+                            setSound(newValue);
+                        }}
+                    />
+                </Box>
                 <input type={"submit"}
                        value={"Add GameReview"}/>
             </form>

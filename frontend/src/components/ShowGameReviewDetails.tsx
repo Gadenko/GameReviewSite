@@ -1,6 +1,7 @@
 import {GameReview} from "../model/GameReview";
 import "../css/ShowGameReviewDetails.css"
 import {useState} from "react";
+import {Rating} from "@mui/material";
 
 type ShowGameReviewDetailsProps = {
     gameReview: GameReview
@@ -8,7 +9,7 @@ type ShowGameReviewDetailsProps = {
 }
 
 export default function ShowGameReviewDetails({gameReview}: ShowGameReviewDetailsProps) {
-    const [explanationFull, setExplanationFull] = useState<boolean> (false);
+    const [explanationFull, setExplanationFull] = useState<boolean>(false);
     return (
         <div className="ShowDetailed">
             <picture>
@@ -19,15 +20,22 @@ export default function ShowGameReviewDetails({gameReview}: ShowGameReviewDetail
             <div className="cardcontainer">
                 <h1>{gameReview.title}</h1>
                 <div>{gameReview.headline}</div>
-                {explanationFull?
+                {explanationFull ?
                     <p>{gameReview.gameDescription}</p>
-                :
+                    :
                     <>
-                    <p>{gameReview.gameDescription.slice(0,80)}...</p>
+                        <p>{gameReview.gameDescription.slice(0, 80)}...</p>
                         <button onClick={() => setExplanationFull(true)}>more</button>
                     </>
                 }
                 <h2>{gameReview.category}</h2>
+                <div className="gametime-card">
+                    <p className="gametime-p">Grafik</p>
+                    <Rating className="gametime-rating" value={gameReview.graphic}/>
+                    <p className="gametime-p">Sound</p>
+                    <Rating className="gametime-rating" value={gameReview.sound}/>
+
+                </div>
             </div>
         </div>
     )

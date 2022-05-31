@@ -5,5 +5,6 @@ export type GameReview = {
     gameDescription: string;
     picture: string;
     category: string;
-    ratingGametime: string;
+    graphic: number | null;
+    sound: number | null;
 }

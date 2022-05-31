@@ -42,11 +42,19 @@ public class GameReviewService {
         if(newGameReview.getCategory() == null){
             throw new IllegalArgumentException("Category of the given gamereview was null");
         }
+        if(newGameReview.getGraphic() == null){
+            throw new IllegalArgumentException("Graphic of the given gamereview was null");
+        }
+        if(newGameReview.getSound() == null){
+            throw new IllegalArgumentException("Sound of the given gamereview was null");
+        }
         newReview.setTitle(newGameReview.getTitle());
         newReview.setHeadline(newGameReview.getHeadline());
         newReview.setGameDescription(newGameReview.getGameDescription());
         newReview.setPicture(newGameReview.getPicture());
         newReview.setCategory(newGameReview.getCategory());
+        newReview.setGraphic(newGameReview.getGraphic());
+        newReview.setSound(newGameReview.getSound());
         return gameReviewRepo.insert(newReview);
     }
 

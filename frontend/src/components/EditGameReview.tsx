@@ -1,5 +1,6 @@
 import {GameReview} from "../model/GameReview";
-import {FormEvent, useState} from "react";
+import React, {FormEvent, useState} from "react";
+import {Box, Rating, Typography} from "@mui/material";
 
 type EditGameReviewProps = {
     gameReview: GameReview
@@ -13,7 +14,8 @@ export default function EditGameReview({gameReview, updateGameReview}: EditGameR
     const [gameDescription, setGameDescription] = useState<string>(gameReview.gameDescription)
     const [picture, setPicture] = useState<string>(gameReview.picture)
     const [category, setCategory] = useState<string>(gameReview.category)
-    const [ratingGametime, setRatingGametime] = useState<string>(gameReview.ratingGametime)
+    const [graphic, setGraphic] = useState<number | null>(gameReview.graphic)
+    const [sound, setSound] = useState<number | null>(gameReview.sound)
 
     const saveNewGameReview = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault()
@@ -25,7 +27,8 @@ export default function EditGameReview({gameReview, updateGameReview}: EditGameR
             gameDescription: gameDescription,
             picture: picture,
             category: category,
-            ratingGametime: ratingGametime
+            graphic: graphic,
+            sound: sound
         }
         updateGameReview(updatedReview)
     }
@@ -81,6 +84,28 @@ export default function EditGameReview({gameReview, updateGameReview}: EditGameR
                         <option>Sport-und-Rennspiel</option>
                     </optgroup>
                 </select>
+                <Box
+                    sx={{
+                        '& > legend': { mt: 2 },
+                    }}
+                >
+                    <Typography component="legend">Grafik</Typography>
+                    <Rating
+                        name="simple-controlled"
+                        value={graphic}
+                        onChange={(event, newValue) => {
+                            setGraphic(newValue);
+                        }}
+                    />
+                    <Typography component="legend">Sound</Typography>
+                    <Rating
+                        name="simple-controlled"
+                        value={sound}
+                        onChange={(event, newValue) => {
+                            setSound(newValue);
+                        }}
+                    />
+                </Box>
                 <button type={"submit"}>Save</button>
             </form>
         </div>

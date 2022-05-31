@@ -8,7 +8,9 @@ type AddReaviewPageProps = {
 export default function AddReviewPage({addNewGameReview}: AddReaviewPageProps){
     return (
         <div>
-            <NewGameReview addNewGameReview={addNewGameReview}/>
+            <NewGameReview
+                addNewGameReview={addNewGameReview}
+                    />
         </div>
     )
 }
