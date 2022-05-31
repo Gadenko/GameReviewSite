@@ -94,16 +94,14 @@ export default function EditGameReview({gameReview, updateGameReview}: EditGameR
                         name="simple-controlled"
                         value={graphic}
                         onChange={(event, newValue) => {
-                            setGraphic(newValue);
-                        }}
+                            setGraphic(newValue);}}
                     />
                     <Typography component="legend">Sound</Typography>
                     <Rating
                         name="simple-controlled"
                         value={sound}
                         onChange={(event, newValue) => {
-                            setSound(newValue);
-                        }}
+                            setSound(newValue);}}
                     />
                 </Box>
                 <button type={"submit"}>Save</button>

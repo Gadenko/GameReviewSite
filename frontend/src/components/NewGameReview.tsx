@@ -101,16 +101,14 @@ export default function NewGameReview({addNewGameReview}: NewGameReviewProps) {
                         name="simple-controlled"
                         value={graphic}
                         onChange={(event, newValue) => {
-                            setGraphic(newValue);
-                        }}
+                            setGraphic(newValue);}}
                     />
                     <Typography component="legend">Sound</Typography>
                     <Rating
                         name="simple-controlled"
                         value={sound}
                         onChange={(event, newValue) => {
-                            setSound(newValue);
-                        }}
+                            setSound(newValue);}}
                     />
                 </Box>
                 <input type={"submit"}
