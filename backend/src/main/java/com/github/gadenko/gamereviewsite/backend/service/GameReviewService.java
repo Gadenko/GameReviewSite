@@ -4,7 +4,6 @@ import com.github.gadenko.gamereviewsite.backend.dto.CreateGameReviewDto;
 import com.github.gadenko.gamereviewsite.backend.model.GameReview;
 import com.github.gadenko.gamereviewsite.backend.repo.GameReviewRepo;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.NoSuchElementException;
 
