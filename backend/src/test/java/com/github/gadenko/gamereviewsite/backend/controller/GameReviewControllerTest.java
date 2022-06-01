@@ -3,18 +3,29 @@ package com.github.gadenko.gamereviewsite.backend.controller;
 import com.github.gadenko.gamereviewsite.backend.dto.CreateGameReviewDto;
 import com.github.gadenko.gamereviewsite.backend.model.GameReview;
 import com.github.gadenko.gamereviewsite.backend.repo.GameReviewRepo;
+import com.github.gadenko.gamereviewsite.backend.security.model.AppUser;
+import com.github.gadenko.gamereviewsite.backend.security.repository.AppUserRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class GameReviewControllerTest {
+
+    private String jwtToken;
+
+    @Autowired
+    PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private AppUserRepository appUserRepository;
 
     @Autowired
     private WebTestClient testClient;
@@ -28,6 +39,8 @@ class GameReviewControllerTest {
     @BeforeEach
     public void cleanUp(){
         gameReviewRepo.deleteAll();
+        appUserRepository.deleteAll();
+        jwtToken = generateJWTToken();
     }
 
     @Test
@@ -58,6 +71,7 @@ class GameReviewControllerTest {
         //When
         List<GameReview> actual = testClient.get()
                 .uri("/api/gamereview")
+                .headers(http -> http.setBearerAuth(jwtToken))
                 .exchange()
                 .expectStatus().is2xxSuccessful()
                 .expectBodyList(GameReview.class)
@@ -105,6 +119,7 @@ class GameReviewControllerTest {
                 .build();
         GameReview addGameReview = testClient.post()
                 .uri("http://localhost:" + port + "/api/gamereview")
+                .headers(http -> http.setBearerAuth(jwtToken))
                 .bodyValue(gameReview)
                 .exchange()
                 .expectStatus().is2xxSuccessful()
@@ -115,6 +130,7 @@ class GameReviewControllerTest {
         assertNotNull(addGameReview);
         GameReview actual = testClient.get()
                 .uri("http://localhost:" + port + "/api/gamereview/" + addGameReview.getId())
+                .headers(http -> http.setBearerAuth(jwtToken))
                 .exchange()
                 .expectBody(GameReview.class)
                 .returnResult()
@@ -151,6 +167,7 @@ class GameReviewControllerTest {
                 .build();
         testClient.post()
                 .uri("http://localhost:" + port + "/api/gamereview")
+                .headers(http -> http.setBearerAuth(jwtToken))
                 .bodyValue(gameReview)
                 .exchange()
                 .expectStatus().is2xxSuccessful()
@@ -160,6 +177,7 @@ class GameReviewControllerTest {
         //When
         testClient.get()
                 .uri("http://localhost:" + port + "/api/gamereview/" + "5")
+                .headers(http -> http.setBearerAuth(jwtToken))
                 .exchange()
         //Then
                 .expectStatus().is4xxClientError();
@@ -168,7 +186,8 @@ class GameReviewControllerTest {
     @Test
     void postNewReview_addAGameReview() {
         //Given
-        GameReview gameReview1 = GameReview.builder()
+        GameReview gameReview1 = GameReview
+                .builder()
                 .title("TES5 Skyrim")
                 .headline("Hält der Titel was er verspricht?")
                 .gameDescription("Was für eine Fantasy Welt")
@@ -180,6 +199,7 @@ class GameReviewControllerTest {
         //When
         GameReview actual = testClient.post()
                 .uri("/api/gamereview")
+                .headers(http -> http.setBearerAuth(jwtToken))
                 .bodyValue(gameReview1)
                 .exchange()
                 .expectStatus().is2xxSuccessful()
@@ -217,6 +237,7 @@ class GameReviewControllerTest {
                 .build();
         testClient.post()
                 .uri("http://localhost:" + port + "/api/gamereview")
+                .headers(http -> http.setBearerAuth(jwtToken))
                 .bodyValue(gameReviewDto)
                 .exchange()
                 .expectStatus().is4xxClientError();
@@ -238,6 +259,7 @@ class GameReviewControllerTest {
         //When
         GameReview addedGameReview = testClient.post()
                 .uri("http://localhost:" + port + "/api/gamereview")
+                .headers(http -> http.setBearerAuth(jwtToken))
                 .bodyValue(gameReview)
                 .exchange()
                 .expectStatus().is2xxSuccessful()
@@ -248,6 +270,7 @@ class GameReviewControllerTest {
         assertNotNull(addedGameReview);
         testClient.delete()
                 .uri("http://localhost:" + port + "/api/gamereview/" + addedGameReview.getId())
+                .headers(http -> http.setBearerAuth(jwtToken))
                 .exchange()
                 //THEN
                 .expectStatus().is2xxSuccessful();
@@ -268,6 +291,7 @@ class GameReviewControllerTest {
                 .build();
         GameReview addedGameReview = testClient.post()
                 .uri("http://localhost:" + port + "/api/gamereview")
+                .headers(http -> http.setBearerAuth(jwtToken))
                 .bodyValue(gameReview)
                 .exchange()
                 .expectStatus().is2xxSuccessful()
@@ -289,6 +313,7 @@ class GameReviewControllerTest {
                 .build();
         GameReview actual = testClient.put()
                 .uri("http://localhost:" + port + "/api/gamereview")
+                .headers(http -> http.setBearerAuth(jwtToken))
                 .bodyValue(updatedGameReview)
                 .exchange()
                 .expectStatus().is2xxSuccessful()
@@ -325,6 +350,7 @@ class GameReviewControllerTest {
                 .build();
         GameReview addedGameReview = testClient.post()
                 .uri("http://localhost:" + port + "/api/gamereview")
+                .headers(http -> http.setBearerAuth(jwtToken))
                 .bodyValue(gameReview)
                 .exchange()
                 .expectStatus().is2xxSuccessful()
@@ -345,6 +371,7 @@ class GameReviewControllerTest {
                 .build();
         testClient.put()
                 .uri("http://localhost:" + port + "/api/gamereview")
+                .headers(http -> http.setBearerAuth(jwtToken))
                 .bodyValue(updatedGameReview)
                 .exchange()
                 .expectStatus().is2xxSuccessful()
@@ -353,6 +380,7 @@ class GameReviewControllerTest {
                 .getResponseBody();
         List<GameReview> actual = testClient.get()
                 .uri("/api/gamereview")
+                .headers(http -> http.setBearerAuth(jwtToken))
                 .exchange()
                 .expectStatus().is2xxSuccessful()
                 .expectBodyList(GameReview.class)
@@ -362,5 +390,27 @@ class GameReviewControllerTest {
         assertNotNull(addedGameReview);
         List<GameReview> expected = List.of(addedGameReview,updatedGameReview);
         assertEquals(expected, actual);
+    }
+
+    private String generateJWTToken() {
+        String hashedPassword = passwordEncoder.encode("passwort");
+        AppUser testUser = AppUser.builder()
+                .username("testuser")
+                .id("123")
+                .password(hashedPassword)
+                .build();
+        appUserRepository.save(testUser);
+
+        return testClient.post()
+                .uri("/auth/login")
+                .bodyValue(AppUser.builder()
+                        .username("testuser")
+                        .id("123")
+                        .password("passwort")
+                        .build())
+                .exchange()
+                .expectBody(String.class)
+                .returnResult()
+                .getResponseBody();
     }
 }
