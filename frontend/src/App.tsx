@@ -8,6 +8,8 @@ import GameReviewHomePage from "./pages/GameReviewHomePage";
 import DetailPage from "./pages/DetailPage";
 import AddReviewPage from "./pages/AddReviewPage";
 import "./css/APP.css"
+import RequireAuth from "./routing/RequireAuth";
+import LoginPage from "./pages/LoginPage";
 
 export default function App() {
 
@@ -21,14 +23,17 @@ export default function App() {
                 <Route path="/"
                        element={<GameReviewHomePage
                            gameReviews={gameReviews}/>}/>
-                <Route path={'/gamereview/:id'}
-                       element={<DetailPage
-                           saveGameReview={saveGameReview}
-                           deleteGameReview={deleteGameReview}/>}/>
-                <Route path="/addgamereview"
-                       element={<AddReviewPage
-                           addNewGameReview={addNewGameReview}
-                       />}/>
+                <Route element={<RequireAuth/>}>
+                    <Route path={'/gamereview/:id'}
+                           element={<DetailPage
+                               saveGameReview={saveGameReview}
+                               deleteGameReview={deleteGameReview}/>}/>
+                    <Route path="/addgamereview"
+                           element={<AddReviewPage
+                               addNewGameReview={addNewGameReview}
+                           />}/>
+                </Route>
+                <Route path={'/login'} element={<LoginPage/>}/>
             </Routes>
         </div>
     );

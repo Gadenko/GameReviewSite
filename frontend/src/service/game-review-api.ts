@@ -1,27 +1,36 @@
 import axios from "axios";
 import {GameReview} from "../model/GameReview";
 
-export function getAllGameReviews(){
-    return axios.get("/api/gamereview")
+export function getAllGameReviews(token?: string) {
+    return axios.get("/api/gamereview", token
+        ? {headers: {"Authorization": token}}
+        : {})
         .then(response => response.data)
 }
 
-export function getGameReviewBy(id: string){
-    return axios.get(`/api/gamereview/${id}`)
+export function getGameReviewBy(id: string, token?: string) {
+    return axios.get(`/api/gamereview/${id}`, token
+        ? {headers: {"Authorization": token}}
+        : {})
         .then(response => response.data)
 }
 
-export const postNewGameReview: (newGameReview: Omit<GameReview,"id">) => Promise<GameReview> = (newGameReview) => {
-    return axios.post("/api/gamereview", newGameReview)
+export const postNewGameReview: (newGameReview: Omit<GameReview, "id">, token?: string) => Promise<GameReview> = (newGameReview, token) => {
+    return axios.post("/api/gamereview", newGameReview, token
+        ? {headers: {"Authorization": token}}
+        : {})
         .then(response => response.data)
 }
 
-export function removeGameReview(id: string){
-    return axios.delete(`/api/gamereview/${id}`)
-        .then(response => response.data)
+export const removeGameReview: (id: string, token?: string) => Promise<void> = (id: string, token) => {
+    return axios.delete(`/api/gamereview/${id}`, token
+        ? {headers: {"Authorization": token}}
+        : {})
 }
 
-export const putGameReview: (updatedGameReview: GameReview) => Promise<GameReview> = (updatedGameReview) => {
-    return axios.put("/api/gamereview", updatedGameReview)
+export const putGameReview: (updatedGameReview: GameReview, token?: string) => Promise<GameReview> = (updatedGameReview, token) => {
+    return axios.put("/api/gamereview", updatedGameReview, token
+        ? {headers: {"Authorization": token}}
+        : {})
         .then(reponse => reponse.data)
 }
