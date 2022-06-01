@@ -1,21 +1,13 @@
 import "../css/Header.css"
-import {FcDatabase, FcHome} from "react-icons/fc";
+import {FcReading, FcHome, FcPlus} from "react-icons/fc";
 
 
 export default function Header() {
 
     return (
         <div className="navbar">
-            <div className="dropdown">
-                <button
-                    className="dropbtn"><FcDatabase/>
-                </button>
-                <div className="dropdown-content">
-                    <a href="/#/addgamereview">AddGameReview</a>
-                </div>
-
-            </div>
-
+            <a href="/#/login"><FcReading/></a>
+            <a href="/#/addgamereview"><FcPlus/></a>
             <a href="/"><FcHome/></a>
             <img className="header-logo"
                  src="https://www.creativefabrica.com/wp-content/uploads/2020/11/01/Hunter-Squad-Esport-Gaming-Logo-Graphics-6405081-1.jpg"
