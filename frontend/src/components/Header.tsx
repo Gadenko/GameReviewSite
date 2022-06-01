@@ -1,12 +1,20 @@
 import "../css/Header.css"
-import {FcHome, FcPlus, FcReading} from "react-icons/fc";
+import {FcDatabase, FcHome, FcPlus, FcReading} from "react-icons/fc";
 
 
 export default function Header() {
 
     return (
         <div className="navbar">
-            <a href="#" onClick={logout}>LOGOUT</a>
+            <div className="dropdown">
+                <button
+                    className="dropbtn"><FcDatabase/>
+                </button>
+                <div className="dropdown-content">
+                    <a href="#" onClick={logout}>LOGOUT</a>
+                </div>
+
+            </div>
             <a href="/#/login"><FcReading/></a>
             <a href="/#/addgamereview"><FcPlus/></a>
             <a href="/"><FcHome/></a>
