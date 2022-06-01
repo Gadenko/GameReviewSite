@@ -1,5 +1,5 @@
 import "../css/Header.css"
-import {FcDatabase, FcHome, FcPlus, FcReading} from "react-icons/fc";
+import {FcHome, FcPlus, FcReading} from "react-icons/fc";
 
 
 export default function Header() {
