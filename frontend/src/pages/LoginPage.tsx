@@ -1,5 +1,6 @@
 import {FormEvent, useContext, useState} from "react";
 import {AuthContext} from "../context/AuthProvider";
+import "../css/LoginPage.css"
 
 export default function LoginPage() {
     const [username, setUsername] = useState<string>("");
@@ -14,7 +15,7 @@ export default function LoginPage() {
             password: password
         })
     }
-    return (<div>
+    return (<div className={"loginpage"}>
                 <form onSubmit={onSubmit}>
                     <input type={"text"} value={username} placeholder={"Username"}
                    onChange={(event) => setUsername(event.target.value)}/>

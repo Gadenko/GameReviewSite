@@ -9,12 +9,12 @@ const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );
 root.render(
-    <HashRouter>
-        <React.StrictMode>
+    <React.StrictMode>
+        <HashRouter>
             <AuthProvider>
-                <App/>
+                <App />
             </AuthProvider>
-        </React.StrictMode>
-    </HashRouter>
+        </HashRouter>
+    </React.StrictMode>
 );
 reportWebVitals();

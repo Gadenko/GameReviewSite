@@ -10,7 +10,7 @@ export default function useGameReview(){
     const {token} = useContext(AuthContext);
 
     useEffect(() => {
-        getAllGameReviews()
+        getAllGameReviews(token)
             .then(allGameReview => setGameReview(allGameReview))
             .catch(() => toast.error("Connection failed! Please retry later."))
     },[token])

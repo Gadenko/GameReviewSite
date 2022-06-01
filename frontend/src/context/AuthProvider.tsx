@@ -8,8 +8,8 @@ const AUTH_KEY = "AuthToken"
 export const AuthContext = createContext<{
     token: string | undefined,
     login: (credentials: { username: string, password: string }) => void }>({
-    token: undefined, login: () => {
-        toast.error("Login not initialized")
+    token: undefined,
+    login: () => {toast.error("Login not initialized")
     }
 })
 
