@@ -1,11 +1,12 @@
 import "../css/Header.css"
-import {FcReading, FcHome, FcPlus} from "react-icons/fc";
+import {FcDatabase, FcHome, FcPlus, FcReading} from "react-icons/fc";
 
 
 export default function Header() {
 
     return (
         <div className="navbar">
+            <a href="#" onClick={logout}>LOGOUT</a>
             <a href="/#/login"><FcReading/></a>
             <a href="/#/addgamereview"><FcPlus/></a>
             <a href="/"><FcHome/></a>
@@ -14,4 +15,9 @@ export default function Header() {
                  alt="Hier sollte ein Bild sein."/>
         </div>
     )
+
+    function logout() {
+        localStorage.clear();
+        window.location.href = '/';
+    }
 }
