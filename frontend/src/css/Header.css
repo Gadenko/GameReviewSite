@@ -50,11 +50,15 @@ body {
 .dropdown-content {
     display: none;
     position: absolute;
-    margin-left: -120px;
-    background-color: red;
-    min-width: 160px;
+    margin-left: -40px;
+    min-width: 60px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+}
+
+.logoutbutton{
+    background-color: red;
+    color: white;
 }
 
 .dropdown-content a {

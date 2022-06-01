@@ -11,7 +11,7 @@ export default function Header() {
                     className="dropbtn"><FcDatabase/>
                 </button>
                 <div className="dropdown-content">
-                    <button onClick={logout}>LOGOUT</button>
+                    <button className="logoutbutton" onClick={logout}>LOGOUT</button>
                 </div>
 
             </div>
