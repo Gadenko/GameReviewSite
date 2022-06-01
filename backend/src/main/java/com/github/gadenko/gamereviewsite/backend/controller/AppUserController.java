@@ -14,5 +14,4 @@ public class AppUserController {
     public AppUserDto getLoggedInUser(Principal principal) {
         return new AppUserDto(principal.getName());
     }
-
 }

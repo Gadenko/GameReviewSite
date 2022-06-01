@@ -28,5 +28,4 @@ public class AppUserAuthController {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(appUser.getUsername(), appUser.getPassword()));
         return jwtUtilService.createToken(appUser.getUsername());
     }
-
 }
