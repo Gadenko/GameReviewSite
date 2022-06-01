@@ -1,6 +1,7 @@
 import {GameReview} from "../model/GameReview";
 import React, {FormEvent, useState} from "react";
 import {Box, Rating, Typography} from "@mui/material";
+import "../css/EditGameReview.css"
 
 type EditGameReviewProps = {
     gameReview: GameReview
@@ -34,11 +35,10 @@ export default function EditGameReview({gameReview, updateGameReview}: EditGameR
     }
     return (
         <div>
-            <picture className={"picture"}>
-                <img
-                    className="picture"
-                    src={gameReview.picture}
-                    alt={"Hier sollte ein Bild sein vom Spiel."}/>
+            <picture>
+                <img className="edit-picture"
+                     src={gameReview.picture}
+                     alt={"Hier sollte ein Bild sein vom Spiel."}/>
             </picture>
             <div className="cardcontainer">
                 <h1>{gameReview.title}</h1>
