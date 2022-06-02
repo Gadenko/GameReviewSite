@@ -1,4 +1,4 @@
-package com.github.gadenko.gamereviewsite.backend.controller.security;
+package com.github.gadenko.gamereviewsite.backend.controller.security.controller;
 
 import com.github.gadenko.gamereviewsite.backend.security.model.AppUser;
 import com.github.gadenko.gamereviewsite.backend.security.repository.AppUserRepository;
