@@ -1,5 +1,6 @@
 import axios from "axios";
 import {GameReview} from "../model/GameReview";
+import {AppUser} from "../modelDto/AppUser";
 
 export function getAllGameReviews(token?: string) {
     return axios.get("/api/gamereview", token
@@ -33,4 +34,9 @@ export const putGameReview: (updatedGameReview: GameReview, token?: string) => P
         ? {headers: {"Authorization": token}}
         : {})
         .then(reponse => reponse.data)
+}
+
+export const postNewAppUser: (newAppUser: Omit<AppUser, "id">) => Promise<AppUser> = (newAppUser) => {
+    return axios.post("/auth", newAppUser)
+        .then(response => response.data)
 }
