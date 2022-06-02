@@ -42,7 +42,7 @@ export default function NewAppUser({addNewAppUser}: NewAppUserProps){
                        placeholder={"Add a username!"}
                        value={username}
                        onChange={event => setUsername(event.target.value)}/>
-                <input type={"text"}
+                <input type={"password"}
                        placeholder={"Add a password!"}
                        value={password}
                        onChange={event => setPassword(event.target.value)}/>
