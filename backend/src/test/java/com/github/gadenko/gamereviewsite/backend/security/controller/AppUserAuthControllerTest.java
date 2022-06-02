@@ -1,4 +1,4 @@
-package com.github.gadenko.gamereviewsite.backend.controller.security;
+package com.github.gadenko.gamereviewsite.backend.security.controller;
 
 import com.github.gadenko.gamereviewsite.backend.security.model.AppUser;
 import com.github.gadenko.gamereviewsite.backend.security.repository.AppUserRepository;
@@ -12,7 +12,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.web.reactive.server.WebTestClient;
-
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class AppUserAuthControllerTest {
@@ -75,6 +76,36 @@ class AppUserAuthControllerTest {
                         .build())
                 .exchange()
                 .expectStatus().isEqualTo(HttpStatus.FORBIDDEN);
+    }
+
+    @Test
+    void postNewAppUser() {
+        //Given
+        AppUser appUser = AppUser
+                .builder()
+                .username("Hans")
+                .password("geheim")
+                .build();
+        //When
+        AppUser actual = webTestClient.post()
+                .uri("/auth")
+                .bodyValue(appUser)
+                .exchange()
+                .expectStatus().is2xxSuccessful()
+                .expectBody(AppUser.class)
+                .returnResult()
+                .getResponseBody();
+        //Then
+        assertNotNull(actual);
+        assertNotNull(actual.getId());
+        AppUser expected = AppUser
+                .builder()
+                .id(actual.getId())
+                .username("Hans")
+                .password(actual.getPassword())
+                .build();
+        assertEquals(24,actual.getId().length());
+        assertEquals(expected,actual);
     }
 
     private AppUser createTestUserInRepoAndGet() {

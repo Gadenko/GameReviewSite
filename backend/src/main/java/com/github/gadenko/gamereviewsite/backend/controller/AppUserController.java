@@ -1,9 +1,7 @@
 package com.github.gadenko.gamereviewsite.backend.controller;
 
 import com.github.gadenko.gamereviewsite.backend.dto.AppUserDto;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import java.security.Principal;
 
 @RestController

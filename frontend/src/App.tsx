@@ -10,10 +10,13 @@ import AddReviewPage from "./pages/AddReviewPage";
 import "./css/APP.css"
 import RequireAuth from "./routing/RequireAuth";
 import LoginPage from "./pages/LoginPage";
+import RegistrierungsPage from "./pages/RegistrierungsPage";
+import useAppUser from "./hook/useAppUser";
 
 export default function App() {
 
     const {gameReviews, deleteGameReview, addNewGameReview, saveGameReview} = useGameReview();
+    const {addNewAppUser} = useAppUser();
 
     return (
         <div>
@@ -23,6 +26,9 @@ export default function App() {
                 <Route path="/"
                        element={<GameReviewHomePage
                            gameReviews={gameReviews}/>}/>
+                <Route path="/gamereview/registration"
+                       element={<RegistrierungsPage
+                           addNewAppUser={addNewAppUser}/>}/>
                 <Route element={<RequireAuth/>}>
                     <Route path={'/gamereview/:id'}
                            element={<DetailPage
