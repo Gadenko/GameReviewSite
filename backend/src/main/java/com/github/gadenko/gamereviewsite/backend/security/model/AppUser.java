@@ -6,10 +6,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @Builder
-@With
 @AllArgsConstructor
 @NoArgsConstructor
-@Document("appusers")
+@Document(collection="appusers")
 
 public class AppUser {
 
