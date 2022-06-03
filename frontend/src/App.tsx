@@ -7,7 +7,6 @@ import Header from "./components/Header";
 import GameReviewHomePage from "./pages/GameReviewHomePage";
 import DetailPage from "./pages/DetailPage";
 import AddReviewPage from "./pages/AddReviewPage";
-import "./css/APP.css"
 import RequireAuth from "./routing/RequireAuth";
 import LoginPage from "./pages/LoginPage";
 import RegistrierungsPage from "./pages/RegistrierungsPage";

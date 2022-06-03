@@ -1,7 +1,7 @@
 import {GameReview} from "../model/GameReview";
-import "../css/ShowGameReviewDetails.css"
 import {useState} from "react";
 import {Rating} from "@mui/material";
+import styled from "styled-components/macro";
 
 type ShowGameReviewDetailsProps = {
     gameReview: GameReview
@@ -11,11 +11,11 @@ type ShowGameReviewDetailsProps = {
 export default function ShowGameReviewDetails({gameReview}: ShowGameReviewDetailsProps) {
     const [explanationFull, setExplanationFull] = useState<boolean>(false);
     return (
-        <div className="ShowDetailed">
+        <div>
             <picture>
-                <img className="detailed-picture"
-                     src={gameReview.picture}
-                     alt={"Hier sollte ein Bild sein vom Spiel."}/>
+                <DetailedPicture className="detailed-picture"
+                                 src={gameReview.picture}
+                                 alt={"Hier sollte ein Bild sein vom Spiel."}/>
             </picture>
             <div className="cardcontainer">
                 <h1>{gameReview.title}</h1>
@@ -29,14 +29,31 @@ export default function ShowGameReviewDetails({gameReview}: ShowGameReviewDetail
                     </>
                 }
                 <h2>{gameReview.category}</h2>
-                <div className="gametime-card">
-                    <p className="gametime-p">Grafik</p>
-                    <Rating className="gametime-rating" value={gameReview.graphic}/>
-                    <p className="gametime-p">Sound</p>
-                    <Rating className="gametime-rating" value={gameReview.sound}/>
+                <GameCard>
+                    <GameRatingHead>Grafik</GameRatingHead>
+                    <Rating value={gameReview.graphic}/>
+                    <GameRatingHead>Sound</GameRatingHead>
+                    <Rating value={gameReview.sound}/>
 
-                </div>
+                </GameCard>
             </div>
         </div>
     )
 }
+
+const DetailedPicture = styled.img`
+  border-radius: 30px;
+  height: auto;
+  width: 40%;
+  border-radius: 30px;
+`
+const GameCard = styled.div`
+  border-radius: 8px;
+  background-color: #478a78;
+`
+const GameRatingHead = styled.p`
+  margin-bottom: -5px;
+  margin-top: -5px;
+  padding: 5px;
+  font-weight: bold;
+`

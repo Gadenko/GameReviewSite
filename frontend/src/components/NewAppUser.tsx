@@ -7,7 +7,7 @@ type NewAppUserProps = {
     addNewAppUser: (newAppUser: Omit<AppUser, "id">) => void
 }
 
-export default function NewAppUser({addNewAppUser}: NewAppUserProps){
+export default function NewAppUser({addNewAppUser}: NewAppUserProps) {
 
     const [username, setUsername] = useState(``)
     const [password, setPassword] = useState(``)
@@ -35,7 +35,7 @@ export default function NewAppUser({addNewAppUser}: NewAppUserProps){
         navigate('/')
     }
 
-    return(
+    return (
         <div className="newAppUser">
             <form onSubmit={onAdd}>
                 <input type={"text"}

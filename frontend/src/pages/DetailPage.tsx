@@ -1,11 +1,11 @@
 import {useNavigate, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import useDetailedGameReview from "../hook/useDetailedGameReview";
-import "../css/Detailspage.css"
 import {BsFillArrowLeftCircleFill, BsFillDashCircleFill} from "react-icons/bs";
 import EditGameReview from "../components/EditGameReview";
 import ShowGameReviewDetails from "../components/ShowGameReviewDetails";
 import {GameReview} from "../model/GameReview";
+import styled from "styled-components/macro";
 
 
 type GameReviewDetailPageProps = {
@@ -36,7 +36,7 @@ export default function DetailPage({deleteGameReview, saveGameReview}: GameRevie
     }
 
     return (
-        <div className="detail-page">
+        <DetailsPage>
             {detailedGameReview &&
                 <div>
                     {editingEnabled
@@ -52,8 +52,15 @@ export default function DetailPage({deleteGameReview, saveGameReview}: GameRevie
             {detailedGameReview &&
                 <button onClick={() => {
                     deleteGameReview(detailedGameReview.id)
-                    navigate('/')}}><BsFillDashCircleFill /></button>}
+                    navigate('/')
+                }}><BsFillDashCircleFill/></button>}
             <button onClick={toggleEditing}>Edit item</button>
-        </div>
+        </DetailsPage>
     )
 }
+const DetailsPage = styled.div`
+  background-color: lightgrey;
+  margin-top: 70px;
+  border-radius: 30px;
+  padding: 10px;
+`

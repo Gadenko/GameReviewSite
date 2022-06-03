@@ -1,8 +1,8 @@
 import {GameReview} from "../model/GameReview";
 import {ChangeEvent, useState} from "react";
 import GameReviewCard from "../components/GameReviewCard";
-import "../css/GameReviewHomePage.css"
 import {FcEmptyTrash} from "react-icons/fc";
+import styled from "styled-components/macro";
 
 type GameReviewGameReviewOverviewProps = {
     gameReviews: GameReview[];
@@ -13,7 +13,7 @@ export default function GameReviewHomePage({gameReviews}: GameReviewGameReviewOv
     const [searchCategory, setSearchCategory] = useState<string>("")
 
     return (
-        <div className="Homepage">
+        <Homepage>
             <div>
                 <div>
                     <input
@@ -30,48 +30,48 @@ export default function GameReviewHomePage({gameReviews}: GameReviewGameReviewOv
                     </button>
                 </div>
                 <div>
-                    <button className="button-homepage"
-                            onClick={() => {
-                                setSearchCategory("");
-                                setSearchTitle("")
-                            }}>Alle
-                    </button>
-                    <button className="button-homepage"
-                            onClick={() => {
-                                setSearchCategory("Strategie");
-                                setSearchTitle("")
-                            }}>Strategie
-                    </button>
-                    <button className="button-homepage"
-                            onClick={() => {
-                                setSearchCategory("RPG");
-                                setSearchTitle("")
-                            }}>RPG
-                    </button>
-                    <button className="button-homepage"
-                            onClick={() => {
-                                setSearchCategory("Abenteuer");
-                                setSearchTitle("")
-                            }}>Abenteuer
-                    </button>
-                    <button className="button-homepage"
-                            onClick={() => {
-                                setSearchCategory("Fantasy");
-                                setSearchTitle("")
-                            }}>Fantasy
-                    </button>
-                    <button className="button-homepage"
-                            onClick={() => {
-                                setSearchCategory("Simulation");
-                                setSearchTitle("")
-                            }}>Simulation
-                    </button>
-                    <button className="button-homepage"
-                            onClick={() => {
-                                setSearchCategory("Sport-und-Rennspiele");
-                                setSearchTitle("")
-                            }}>Sport-und-Rennspiele
-                    </button>
+                    <HomepageButton
+                        onClick={() => {
+                            setSearchCategory("");
+                            setSearchTitle("")
+                        }}>Alle
+                    </HomepageButton>
+                    <HomepageButton
+                        onClick={() => {
+                            setSearchCategory("Strategie");
+                            setSearchTitle("")
+                        }}>Strategie
+                    </HomepageButton>
+                    <HomepageButton
+                        onClick={() => {
+                            setSearchCategory("RPG");
+                            setSearchTitle("")
+                        }}>RPG
+                    </HomepageButton>
+                    <HomepageButton
+                        onClick={() => {
+                            setSearchCategory("Abenteuer");
+                            setSearchTitle("")
+                        }}>Abenteuer
+                    </HomepageButton>
+                    <HomepageButton
+                        onClick={() => {
+                            setSearchCategory("Fantasy");
+                            setSearchTitle("")
+                        }}>Fantasy
+                    </HomepageButton>
+                    <HomepageButton
+                        onClick={() => {
+                            setSearchCategory("Simulation");
+                            setSearchTitle("")
+                        }}>Simulation
+                    </HomepageButton>
+                    <HomepageButton
+                        onClick={() => {
+                            setSearchCategory("Sport-und-Rennspiele");
+                            setSearchTitle("")
+                        }}>Sport-und-Rennspiele
+                    </HomepageButton>
                 </div>
                 <div>{gameReviews.filter(gameReview => gameReview
                     .category
@@ -88,6 +88,20 @@ export default function GameReviewHomePage({gameReviews}: GameReviewGameReviewOv
                         />)}
                 </div>
             </div>
-        </div>
+        </Homepage>
     )
 }
+
+const Homepage = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 60px;
+`
+const HomepageButton = styled.button`
+  border-radius: 4px;
+  color: black;
+  background-color: slategrey;
+  margin-bottom: 1px;
+  margin-top: 5px;
+`
