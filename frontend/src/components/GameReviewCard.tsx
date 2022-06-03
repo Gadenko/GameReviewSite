@@ -1,6 +1,6 @@
 import {GameReview} from "../model/GameReview";
 import {useNavigate} from "react-router-dom";
-import "../css/GameReviewCard.css"
+import styled from "styled-components/macro";
 
 type GameReviewCardProps = {
     gameReviews: GameReview
@@ -9,18 +9,43 @@ type GameReviewCardProps = {
 export default function GameReviewCard({gameReviews}: GameReviewCardProps) {
     const navigate = useNavigate();
     return (
-        <div className={"card"}
+        <WrapperCard
             onClick={() => navigate(`/gamereview/${gameReviews.id}`)}>
-            <div className="picture-GameCard">
-                <img
-                    className="picture-GameCard-Detailed"
+            <PictureGamecard>
+                <PictureGamecardDetails
                     src={gameReviews.picture}
                     alt={"Hier sollte ein Bild sein vom Spiel."}/>
+            </PictureGamecard>
+            <div>
+                <TitleCard>{gameReviews.title}</TitleCard>
+                <HeadlineCard>{gameReviews.headline}</HeadlineCard>
             </div>
-            <div className="cardcontainer">
-                <h1 className="title-card">{gameReviews.title}</h1>
-                <div className="headline-card">{gameReviews.headline}</div>
-            </div>
-        </div>
+        </WrapperCard>
     )
 }
+
+const WrapperCard = styled.div`
+  background-color: lightgrey;
+  margin-top: 10px;
+  border-radius: 30px;
+`
+const PictureGamecard = styled.div`
+  border-radius: 30px;
+  font-size: 15px;
+  padding: 10px;
+  margin-bottom: -20px;
+`
+
+const PictureGamecardDetails = styled.img`
+  height: auto;
+  width: 40%;
+  border-radius: 30px;
+`
+
+const TitleCard = styled.h1`
+  padding: 10px;
+  margin-bottom: -20px;
+`
+const HeadlineCard = styled.div`
+  padding: 10px;
+`

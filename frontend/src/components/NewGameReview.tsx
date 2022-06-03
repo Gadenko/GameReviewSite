@@ -2,8 +2,8 @@ import {GameReview} from "../model/GameReview";
 import React, {FormEvent, useState} from "react";
 import {toast} from "react-toastify";
 import {useNavigate} from "react-router-dom";
-import "../css/NewGameReview.css"
 import {Box, Rating, Typography} from "@mui/material";
+import styled from "styled-components/macro";
 
 type NewGameReviewProps = {
     addNewGameReview: (newGameReview: Omit<GameReview, "id">) => void
@@ -61,7 +61,7 @@ export default function NewGameReview({addNewGameReview}: NewGameReviewProps) {
         navigate('/')
     }
     return (
-        <div className="new-review">
+        <NewReview>
             <form onSubmit={onAdd}>
                 <input type={"text"}
                        placeholder={"Add a Title!"}
@@ -116,6 +116,10 @@ export default function NewGameReview({addNewGameReview}: NewGameReviewProps) {
                 <input type={"submit"}
                        value={"Add GameReview"}/>
             </form>
-        </div>
+        </NewReview>
     )
 }
+
+const NewReview = styled.div`
+  margin-top: 64px;
+`
