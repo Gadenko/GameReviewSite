@@ -47,12 +47,12 @@ const Dropdown = styled.div`
   position: relative;
   display: inline-block;
 
-  :hover,
+  :hover
   .dropdown-content {
     display: block;
   }
 
-  :hover,
+  :hover
   .dropbtn {
     background-color: grey;
   }
