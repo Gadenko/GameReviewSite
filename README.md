@@ -1,8 +1,9 @@
 # GameReviewSite (This is a MobileWebApp for the Mobile Browser)
 
-With this site you can read more about some games on the Market. 
-First you can just handle this site as Admin. No any user can use this. 
+With this site you can read more about some games on the market. 
 Later on this site, can also read some user. But just read. Just the admin can add something reviews.
+At the moment anybody can create a account. And login with it, for create an review, delete it or edit it. The Security is just a basic security. The same name can register, but cant login with it. So choose first a special username. :P
+
 
 On this site you will find reviews from games.
 
