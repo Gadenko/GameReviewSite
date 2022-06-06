@@ -106,7 +106,7 @@ export default function EditGameReview({gameReview, updateGameReview}: EditGameR
                         }}
                     />
                 </Box>
-                <button type={"submit"}>Save</button>
+                <EditButtons type={"submit"}>Save</EditButtons>
             </form>
         </div>
     )
@@ -116,4 +116,11 @@ const EditPicture = styled.img`
   border-radius: 30px;
   height: auto;
   width: 40%;
+`
+const EditButtons = styled.button`
+  border-radius: 4px;
+  color: black;
+  background-color: slategrey;
+  margin-bottom: 1px;
+  margin-top: 5px;
 `

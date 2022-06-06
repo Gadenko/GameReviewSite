@@ -24,8 +24,8 @@ export default function LoginPage() {
                        onChange={(event) => setUsername(event.target.value)}/>
                 <input type={"password"} value={password} placeholder={"Password"}
                        onChange={(event) => setPassword(event.target.value)}/>
-                <button type={"submit"}>Login</button>
-                <button onClick={() => navigate(`/gamereview/registration`)}>Registrieren</button>
+                <LoginButtons type={"submit"}>Login</LoginButtons>
+                <LoginButtons onClick={() => navigate(`/gamereview/registration`)}>Registrieren</LoginButtons>
             </form>
 
         </Loginpage>)
@@ -33,4 +33,12 @@ export default function LoginPage() {
 
 const Loginpage = styled.div`
   margin-top: 70px;
+`
+
+const LoginButtons = styled.button`
+  border-radius: 4px;
+  color: black;
+  background-color: slategrey;
+  margin-bottom: 1px;
+  margin-top: 5px;
 `

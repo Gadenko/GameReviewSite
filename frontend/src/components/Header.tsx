@@ -6,8 +6,8 @@ export default function Header() {
     return (
         <Wrapper>
             <Dropdown>
-                <DropBtn className="dropbtn"><FcDatabase/></DropBtn>
-                <DropdownContent className="dropdown-content">
+                <DropBtn><FcDatabase/></DropBtn>
+                <DropdownContent>
                     <DropdownContentA onClick={logout}>LOGOUT</DropdownContentA>
                 </DropdownContent>
 
@@ -47,18 +47,18 @@ const Dropdown = styled.div`
   position: relative;
   display: inline-block;
 
-  :hover
-  .dropdown-content {
-    display: block;
-  }
+  :hover {
+    div {
+      display: block;
+    }
 
-  :hover
-  .dropbtn {
-    background-color: grey;
+    button {
+      background-color: grey;
+    }
   }
 `
-const DropBtn = styled.div`
-  color: white;
+const DropBtn = styled.button`
+  background-color: #333;
   padding: 16px;
   font-size: 16px;
   border: none;

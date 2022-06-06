@@ -48,13 +48,13 @@ export default function DetailPage({deleteGameReview, saveGameReview}: GameRevie
                             toggleEditing={toggleEditing}/>
                     }
                 </div>}
-            <button onClick={() => navigate(`/`)}><BsFillArrowLeftCircleFill/></button>
+            <DetailpageButtons onClick={() => navigate(`/`)}><BsFillArrowLeftCircleFill/></DetailpageButtons>
             {detailedGameReview &&
-                <button onClick={() => {
+                <DetailpageButtons onClick={() => {
                     deleteGameReview(detailedGameReview.id)
                     navigate('/')
-                }}><BsFillDashCircleFill/></button>}
-            <button onClick={toggleEditing}>Edit item</button>
+                }}><BsFillDashCircleFill/></DetailpageButtons>}
+            <DetailpageButtons onClick={toggleEditing}>Edit item</DetailpageButtons>
         </DetailsPage>
     )
 }
@@ -63,4 +63,12 @@ const DetailsPage = styled.div`
   margin-top: 70px;
   border-radius: 30px;
   padding: 10px;
+`
+
+const DetailpageButtons = styled.button`
+  border-radius: 4px;
+  color: black;
+  background-color: slategrey;
+  margin-bottom: 1px;
+  margin-top: 5px;
 `
