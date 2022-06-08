@@ -2,7 +2,6 @@ package com.github.gadenko.gamereviewsite.backend.security.controller;
 
 import com.github.gadenko.gamereviewsite.backend.security.dto.CreateAppUserDto;
 import com.github.gadenko.gamereviewsite.backend.security.model.AppUser;
-import com.github.gadenko.gamereviewsite.backend.security.service.AppUserDetailsService;
 import com.github.gadenko.gamereviewsite.backend.security.service.AppUserService;
 import com.github.gadenko.gamereviewsite.backend.security.service.JWTUtilService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +22,7 @@ public class AppUserAuthController {
 
 
     @Autowired
-    public AppUserAuthController(AuthenticationManager authenticationManager, JWTUtilService jwtUtilService, AppUserDetailsService appUserDetailsService, AppUserService appUserService) {
+    public AppUserAuthController(AuthenticationManager authenticationManager, JWTUtilService jwtUtilService, AppUserService appUserService) {
         this.authenticationManager = authenticationManager;
         this.jwtUtilService = jwtUtilService;
         this.appUserService = appUserService;
