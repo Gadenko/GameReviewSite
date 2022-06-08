@@ -11,10 +11,13 @@ import RequireAuth from "./routing/RequireAuth";
 import LoginPage from "./pages/LoginPage";
 import RegistrierungsPage from "./pages/RegistrierungsPage";
 import useAppUser from "./hook/useAppUser";
+import useUserComments from "./hook/useUserComments";
 
 export default function App() {
 
     const {gameReviews, deleteGameReview, addNewGameReview, saveGameReview} = useGameReview();
+    const {addNewUserComment, userComment} = useUserComments();
+
     const {addNewAppUser} = useAppUser();
 
     return (
@@ -32,7 +35,10 @@ export default function App() {
                     <Route path={'/gamereview/:id'}
                            element={<DetailPage
                                saveGameReview={saveGameReview}
-                               deleteGameReview={deleteGameReview}/>}/>
+                               deleteGameReview={deleteGameReview}
+                               addNewUserComment={addNewUserComment}
+                               userComments={userComment}
+                           />}/>
                     <Route path="/addgamereview"
                            element={<AddReviewPage
                                addNewGameReview={addNewGameReview}
