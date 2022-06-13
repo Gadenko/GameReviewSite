@@ -1,3 +1,4 @@
+
 import {GameReviewComments} from "../model/GameReviewComments";
 import React, {FormEvent, useState} from "react";
 import {toast} from "react-toastify";
@@ -37,10 +38,11 @@ export default function AddGameReviewComment({addNewUserComment, gameReview}: Ad
     return (
         <NewComment>
             <form onSubmit={onAdd}>
-                <input type={"text"}
-                       placeholder={"Add a comment!"}
-                       value={comment}
-                       onChange={event => setComment(event.target.value)}/>
+                <CommentInput
+                    type={"text"}
+                    placeholder={"Add a comment!"}
+                    value={comment}
+                    onChange={event => setComment(event.target.value)}/>
                 <Box
                     sx={{
                         '& > legend': {mt: 2},
@@ -55,12 +57,22 @@ export default function AddGameReviewComment({addNewUserComment, gameReview}: Ad
                         }}
                     />
                 </Box>
-                <input type={"submit"}
-                       value={"Add UserComment"}/>
+                <CommentButton type={"submit"}
+                               value={"Add UserComment"}/>
             </form>
         </NewComment>
     )
 }
 const NewComment = styled.div`
-  margin-top: 64px;
+  margin-top: 34px;
+`
+const CommentButton = styled.input`
+  border-radius: 4px;
+  color: black;
+  background-color: slategrey;
+  margin-bottom: 1px;
+  margin-top: 5px;
+`
+const CommentInput = styled.input`
+  margin-top: 5px;
 `
