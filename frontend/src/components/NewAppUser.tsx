@@ -19,10 +19,6 @@ export default function NewAppUser({addNewAppUser}: NewAppUserProps) {
             toast.error("You need a username!");
             return
         }
-        if(!username === !username){
-            toast.error("You username already exist")
-            return
-        }
         if (!password) {
             toast.error("You need a password!");
             return
