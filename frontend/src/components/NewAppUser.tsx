@@ -32,7 +32,7 @@ export default function NewAppUser({addNewAppUser}: NewAppUserProps) {
         addNewAppUser(newAppUser);
         setUsername(``)
         setPassword(``)
-        navigate('/')
+        navigate('/login')
     }
 
     return (
@@ -51,5 +51,4 @@ export default function NewAppUser({addNewAppUser}: NewAppUserProps) {
             </form>
         </div>
     )
-
 }
