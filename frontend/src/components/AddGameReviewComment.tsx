@@ -1,4 +1,3 @@
-
 import {GameReviewComments} from "../model/GameReviewComments";
 import React, {FormEvent, useState} from "react";
 import {toast} from "react-toastify";
@@ -36,35 +35,38 @@ export default function AddGameReviewComment({addNewUserComment, gameReview}: Ad
         addNewUserComment(newUserComments);
     }
     return (
-        <NewComment>
-            <form onSubmit={onAdd}>
-                <CommentInput
-                    type={"text"}
-                    placeholder={"Add a comment!"}
-                    value={comment}
-                    onChange={event => setComment(event.target.value)}/>
-                <Box
-                    sx={{
-                        '& > legend': {mt: 2},
-                    }}
-                >
-                    <Typography component="legend">Comment</Typography>
-                    <Rating
-                        name="simple-controlled"
-                        value={commentRating}
-                        onChange={(event, newValue) => {
-                            setCommentRating(newValue);
+            <NewComment>
+                <form onSubmit={onAdd}>
+                    <CommentInput
+                        type={"text"}
+                        placeholder={"Schreibe ein Kommentar!"}
+                        value={comment}
+                        onChange={event => setComment(event.target.value)}/>
+                    <Box
+                        sx={{
+                            '& > legend': {mt: 2},
                         }}
-                    />
-                </Box>
-                <CommentButton type={"submit"}
-                               value={"Add UserComment"}/>
-            </form>
-        </NewComment>
+                    >
+                        <Typography component="legend" fontWeight="bold">Game Bewertung</Typography>
+                        <Rating
+                            name="simple-controlled"
+                            value={commentRating}
+                            onChange={(event, newValue) => {
+                                setCommentRating(newValue);
+                            }}
+                        />
+                    </Box>
+                    <CommentButton type={"submit"}
+                                   value={"Kommentar hinzufügen!"}/>
+                </form>
+            </NewComment>
     )
 }
 const NewComment = styled.div`
   margin-top: 34px;
+  background-color: #478a78;
+  border-radius: 8px;
+  padding: 5px;
 `
 const CommentButton = styled.input`
   border-radius: 4px;
@@ -75,4 +77,5 @@ const CommentButton = styled.input`
 `
 const CommentInput = styled.input`
   margin-top: 5px;
+  margin-bottom: -8px;
 `
