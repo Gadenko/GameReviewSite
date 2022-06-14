@@ -19,16 +19,16 @@ export default function ShowGameReviewDetails({gameReview}: ShowGameReviewDetail
             </picture>
             <div className="cardcontainer">
                 <h1>{gameReview.title}</h1>
-                <div>{gameReview.headline}</div>
+                <Category>{gameReview.category} Game</Category>
+                <HeadlineText>{gameReview.headline}</HeadlineText>
                 {explanationFull ?
                     <p>{gameReview.gameDescription}</p>
                     :
                     <>
                         <p>{gameReview.gameDescription.slice(0, 80)}...</p>
-                        <button onClick={() => setExplanationFull(true)}>more</button>
+                        <MoreButton onClick={() => setExplanationFull(true)}>more</MoreButton>
                     </>
                 }
-                <h2>{gameReview.category}</h2>
                 <GameCard>
                     <GameRatingHead>Grafik</GameRatingHead>
                     <Rating value={gameReview.graphic}/>
@@ -40,7 +40,21 @@ export default function ShowGameReviewDetails({gameReview}: ShowGameReviewDetail
         </div>
     )
 }
-
+const HeadlineText = styled.div`
+  font-weight: bold;
+`
+const Category = styled.p`
+  font-weight: bold;
+  text-decoration: underline;
+  margin-top: -10px;
+`
+const MoreButton = styled.button`
+  border-radius: 4px;
+  color: black;
+  background-color: slategrey;
+  margin-bottom: 15px;
+  margin-top: 5px;
+`
 const DetailedPicture = styled.img`
   border-radius: 30px;
   height: auto;
@@ -49,7 +63,7 @@ const DetailedPicture = styled.img`
 `
 const GameCard = styled.div`
   border-radius: 8px;
-  background-color: #478a78;
+  background-color: #758680;
 `
 const GameRatingHead = styled.p`
   margin-bottom: -5px;

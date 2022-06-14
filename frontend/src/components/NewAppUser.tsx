@@ -2,6 +2,7 @@ import {AppUser} from "../modelDto/AppUser";
 import React, {FormEvent, useState} from "react";
 import {toast} from "react-toastify";
 import {useNavigate} from "react-router-dom";
+import styled from "styled-components/macro";
 
 type NewAppUserProps = {
     addNewAppUser: (newAppUser: Omit<AppUser, "id">) => void
@@ -36,7 +37,7 @@ export default function NewAppUser({addNewAppUser}: NewAppUserProps) {
     }
 
     return (
-        <div className="newAppUser">
+        <Wrapper className="newAppUser">
             <form onSubmit={onAdd}>
                 <input type={"text"}
                        placeholder={"Add a username!"}
@@ -46,10 +47,22 @@ export default function NewAppUser({addNewAppUser}: NewAppUserProps) {
                        placeholder={"Add a password!"}
                        value={password}
                        onChange={event => setPassword(event.target.value)}/>
-                <input type={"submit"}
-                       value={"Add AppUser"}/>
+                <AddUserButton type={"submit"}
+                               value={"Registrieren"}/>
             </form>
-        </div>
+        </Wrapper>
     )
 
 }
+const Wrapper = styled.div`
+  background-color: #758680;
+  border-radius: 8px;
+  padding: 5px;
+`
+const AddUserButton = styled.input`
+  border-radius: 4px;
+  color: black;
+  background-color: slategrey;
+  margin-bottom: 1px;
+  margin-top: 5px;
+`

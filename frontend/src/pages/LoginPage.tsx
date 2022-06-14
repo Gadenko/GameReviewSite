@@ -30,11 +30,12 @@ export default function LoginPage() {
 
         </Loginpage>)
 }
-
 const Loginpage = styled.div`
   margin-top: 70px;
+  background-color: #758680;
+  border-radius: 8px;
+  padding: 5px;
 `
-
 const LoginButtons = styled.button`
   border-radius: 4px;
   color: black;

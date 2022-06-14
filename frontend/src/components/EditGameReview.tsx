@@ -42,28 +42,28 @@ export default function EditGameReview({gameReview, updateGameReview}: EditGameR
             </picture>
             <div className="cardcontainer">
                 <h1>{gameReview.title}</h1>
-                <div>{gameReview.headline}</div>
+                <HeadlineText>{gameReview.headline}</HeadlineText>
             </div>
             <form onSubmit={saveNewGameReview}>
-                <input
+                <InputEdit
                     type="text"
                     defaultValue={title}
                     onChange={e => {
                         setTitle(e.target.value)
                     }}/>
-                <input
+                <InputEdit
                     type="text"
                     defaultValue={headline}
                     onChange={e => {
                         setHeadline(e.target.value)
                     }}/>
-                <input
+                <InputEdit
                     type="text"
                     defaultValue={gameDescription}
                     onChange={e => {
                         setGameDescription(e.target.value)
                     }}/>
-                <input
+                <InputEdit
                     type="url"
                     defaultValue={picture}
                     onChange={e => {
@@ -84,34 +84,50 @@ export default function EditGameReview({gameReview, updateGameReview}: EditGameR
                         <option>Sport-und-Rennspiel</option>
                     </optgroup>
                 </select>
-                <Box
-                    sx={{
-                        '& > legend': {mt: 2},
-                    }}
-                >
-                    <Typography component="legend">Grafik</Typography>
-                    <Rating
-                        name="simple-controlled"
-                        value={graphic}
-                        onChange={(event, newValue) => {
-                            setGraphic(newValue);
+                <RatingReview>
+                    <Box
+                        sx={{
+                            '& > legend': {mt: 2},
                         }}
-                    />
-                    <Typography component="legend">Sound</Typography>
-                    <Rating
-                        name="simple-controlled"
-                        value={sound}
-                        onChange={(event, newValue) => {
-                            setSound(newValue);
-                        }}
-                    />
-                </Box>
+                    >
+                        <Typography component="legend">Grafik</Typography>
+                        <Rating
+                            name="simple-controlled"
+                            value={graphic}
+                            onChange={(event, newValue) => {
+                                setGraphic(newValue);
+                            }}
+                        />
+                        <Typography component="legend">Sound</Typography>
+                        <Rating
+                            name="simple-controlled"
+                            value={sound}
+                            onChange={(event, newValue) => {
+                                setSound(newValue);
+                            }}
+                        />
+                    </Box>
+                </RatingReview>
                 <EditButtons type={"submit"}>Save</EditButtons>
             </form>
         </div>
     )
 }
-
+const RatingReview = styled.div`
+  margin-top: 20px;
+  background-color: #758680;
+  border-radius: 8px;
+  padding: 5px;
+`
+const InputEdit = styled.input`
+  width: 90%;
+  height: 20px;
+  margin-bottom: 5px;
+`
+const HeadlineText = styled.div`
+  font-weight: bold;
+  margin-bottom: 10px;
+`
 const EditPicture = styled.img`
   border-radius: 30px;
   height: auto;
