@@ -36,4 +36,17 @@ public class RestResponseEntityEncoderExceptionHandler extends ResponseEntityExc
 
         return handleExceptionInternal(ex, bodyOfResponse, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
     }
+    @ExceptionHandler(value = {NameAlreadyExistException.class})
+    protected ResponseEntity<Object> handleConflict(NameAlreadyExistException ex, WebRequest request){
+
+        ErrorResponse bodyOfResponse = ErrorResponse
+                .builder()
+                .error(HttpStatus.CONFLICT)
+                .errorMessage(ex.getMessage())
+                .timestamp(LocalDateTime.now())
+                .requestUri(request.getDescription(false))
+                .build();
+
+        return handleExceptionInternal(ex, bodyOfResponse, new HttpHeaders(), HttpStatus.CONFLICT, request);
+    }
 }

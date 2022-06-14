@@ -17,7 +17,6 @@ export default function App() {
 
     const {gameReviews, deleteGameReview, addNewGameReview, saveGameReview} = useGameReview();
     const {addNewUserComment, userComment} = useUserComments();
-
     const {addNewAppUser} = useAppUser();
 
     return (

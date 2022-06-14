@@ -37,5 +37,4 @@ export default function AuthProvider({children}: AuthProviderProps) {
             {children}
         </AuthContext.Provider>
     </div>
-
 }

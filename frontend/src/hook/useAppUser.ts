@@ -10,7 +10,7 @@ export default function useAppUser(){
         postNewAppUser(newAppUser)
             .then(addedAppUser => setAppUser([...appUser,addedAppUser]))
             .then(() => {toast.success("AppUser: " + newAppUser.username + " created");})
-            .catch(() => toast.error("Connection failed! Please retry later."))
+            .catch(() => toast.error("The username already exist."))
     }
     return{appUser, addNewAppUser}
 }

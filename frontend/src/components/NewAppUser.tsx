@@ -33,7 +33,7 @@ export default function NewAppUser({addNewAppUser}: NewAppUserProps) {
         addNewAppUser(newAppUser);
         setUsername(``)
         setPassword(``)
-        navigate('/')
+        navigate('/login')
     }
 
     return (
@@ -52,7 +52,6 @@ export default function NewAppUser({addNewAppUser}: NewAppUserProps) {
             </form>
         </Wrapper>
     )
-
 }
 const Wrapper = styled.div`
   background-color: #758680;
